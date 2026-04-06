@@ -3,1488 +3,289 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>POP-COM-001 | Processo de Novo Cliente — UPTECH</title>
+  <meta name="x-apple-disable-message-reformatting" />
+  <title>UP380 + Ação Tecnologia — Uma Nova Era</title>
+  <!--[if mso]>
   <style>
-    :root {
-      --brand:    #0d47a1;
-      --brand-lt: #1565c0;
-      --accent:   #e65100;
-      --ok:       #2e7d32;
-      --warn:     #f57f17;
-      --danger:   #b71c1c;
-      --bg:       #f4f6fb;
-      --card:     #ffffff;
-      --border:   #dde3f0;
-      --text:     #1a1a2e;
-      --muted:    #6b7280;
-      --radius:   12px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100vh;
-    }
-
-    /* ── HEADER ── */
-    header {
-      background: linear-gradient(135deg, var(--brand) 0%, #1976d2 100%);
-      color: #fff;
-      padding: 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,.25);
-    }
-    .header-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 18px 24px 14px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-    }
-    .logo-box {
-      background: rgba(255,255,255,.15);
-      border-radius: 10px;
-      padding: 8px 16px;
-      font-size: 1.4rem;
-      font-weight: 800;
-      letter-spacing: 1px;
-    }
-    .header-text h1 { font-size: 1.1rem; font-weight: 700; }
-    .header-text p  { font-size: .78rem; opacity: .8; margin-top: 2px; }
-    .header-badge {
-      margin-left: auto;
-      background: rgba(255,255,255,.18);
-      border-radius: 20px;
-      padding: 5px 14px;
-      font-size: .75rem;
-      font-weight: 600;
-      letter-spacing: .5px;
-      white-space: nowrap;
-    }
-
-    /* ── NAV ── */
-    nav {
-      background: #fff;
-      border-bottom: 1px solid var(--border);
-      overflow-x: auto;
-      white-space: nowrap;
-      scrollbar-width: none;
-    }
-    nav::-webkit-scrollbar { display: none; }
-    .nav-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      gap: 2px;
-      padding: 0 16px;
-    }
-    nav button {
-      border: none;
-      background: transparent;
-      padding: 12px 16px;
-      font-size: .82rem;
-      font-weight: 600;
-      color: var(--muted);
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: all .2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    nav button:hover { color: var(--brand); }
-    nav button.active {
-      color: var(--brand);
-      border-bottom-color: var(--brand);
-    }
-
-    /* ── LAYOUT ── */
-    main {
-      max-width: 1200px;
-      margin: 28px auto;
-      padding: 0 20px;
-    }
-
-    /* ── CARDS ── */
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 28px;
-      margin-bottom: 24px;
-      box-shadow: 0 1px 4px rgba(0,0,0,.05);
-    }
-    .card-title {
-      font-size: 1.05rem;
-      font-weight: 700;
-      color: var(--brand);
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .card-title .icon {
-      width: 34px; height: 34px;
-      background: #e8f0fe;
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem;
-    }
-
-    /* ── PHASE HEADER ── */
-    .phase-header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
-      padding-bottom: 16px;
-      border-bottom: 2px solid var(--border);
-    }
-    .phase-number {
-      width: 52px; height: 52px;
-      border-radius: 50%;
-      background: var(--brand);
-      color: #fff;
-      font-size: 1.3rem;
-      font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .phase-info h2 { font-size: 1.15rem; font-weight: 700; color: var(--text); }
-    .phase-info .meta { font-size: .8rem; color: var(--muted); margin-top: 3px; }
-    .phase-badge {
-      margin-left: auto;
-      background: #e8f0fe;
-      color: var(--brand);
-      border-radius: 20px;
-      padding: 5px 14px;
-      font-size: .78rem;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    /* ── PROGRESS BAR ── */
-    .progress-wrap { margin-bottom: 20px; }
-    .progress-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: .78rem;
-      color: var(--muted);
-      margin-bottom: 5px;
-    }
-    .progress-bar {
-      height: 8px;
-      background: #e8f0fe;
-      border-radius: 99px;
-      overflow: hidden;
-    }
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--brand), #42a5f5);
-      border-radius: 99px;
-      transition: width .4s ease;
-    }
-
-    /* ── CHECKLIST ── */
-    .checklist { display: flex; flex-direction: column; gap: 8px; }
-    .check-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 10px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background .15s;
-      border: 1px solid transparent;
-    }
-    .check-item:hover { background: #f0f4ff; border-color: #c5d7fc; }
-    .check-item.done { background: #f0faf4; border-color: #a8d5b4; }
-    .check-item input[type=checkbox] {
-      width: 18px; height: 18px;
-      margin-top: 1px;
-      accent-color: var(--ok);
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-    .check-text { font-size: .88rem; line-height: 1.45; flex: 1; }
-    .check-item.done .check-text { text-decoration: line-through; color: var(--muted); }
-    .check-system {
-      font-size: .72rem;
-      color: var(--brand);
-      background: #e8f0fe;
-      border-radius: 4px;
-      padding: 2px 7px;
-      white-space: nowrap;
-      align-self: flex-start;
-      margin-top: 2px;
-    }
-
-    /* ── DECISION BOX ── */
-    .decision-box {
-      border-radius: 10px;
-      border: 2px solid var(--warn);
-      background: #fffde7;
-      padding: 16px 20px;
-      margin: 16px 0;
-    }
-    .decision-title {
-      font-size: .85rem;
-      font-weight: 700;
-      color: #7c5700;
-      margin-bottom: 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .decision-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .decision-option {
-      flex: 1;
-      min-width: 180px;
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: .82rem;
-      font-weight: 600;
-    }
-    .decision-option.yes { background: #e8f5e9; color: var(--ok); border: 1px solid #a5d6a7; }
-    .decision-option.no  { background: #ffebee; color: var(--danger); border: 1px solid #ef9a9a; }
-
-    /* ── TABLES ── */
-    .data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .85rem;
-    }
-    .data-table th {
-      background: var(--brand);
-      color: #fff;
-      padding: 10px 14px;
-      text-align: left;
-      font-weight: 600;
-    }
-    .data-table th:first-child { border-radius: 8px 0 0 0; }
-    .data-table th:last-child  { border-radius: 0 8px 0 0; }
-    .data-table td {
-      padding: 9px 14px;
-      border-bottom: 1px solid var(--border);
-      vertical-align: top;
-    }
-    .data-table tr:last-child td { border-bottom: none; }
-    .data-table tr:nth-child(even) td { background: #f8faff; }
-    .data-table tr:hover td { background: #eef3ff; }
-
-    /* ── DESCRIPTION ── */
-    .desc-text {
-      font-size: .9rem;
-      color: #374151;
-      line-height: 1.65;
-      margin-bottom: 16px;
-      padding: 14px 18px;
-      background: #f8faff;
-      border-left: 4px solid var(--brand);
-      border-radius: 0 8px 8px 0;
-    }
-    .activities-title {
-      font-size: .82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-    .activity-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-bottom: 16px;
-    }
-    .activity-list li {
-      font-size: .87rem;
-      padding: 7px 12px;
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-    }
-    .activity-list li::before {
-      content: '›';
-      color: var(--brand);
-      font-size: 1rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    /* ── RESET BTN ── */
-    .reset-btn {
-      border: none;
-      background: #ffebee;
-      color: var(--danger);
-      padding: 6px 14px;
-      border-radius: 6px;
-      font-size: .78rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background .15s;
-    }
-    .reset-btn:hover { background: #ffcdd2; }
-
-    /* ── GRID OVERVIEW ── */
-    .phases-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
-    .phase-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 20px;
-      cursor: pointer;
-      transition: all .2s;
-    }
-    .phase-card:hover {
-      border-color: var(--brand);
-      box-shadow: 0 4px 16px rgba(13,71,161,.12);
-      transform: translateY(-2px);
-    }
-    .phase-card .num {
-      width: 36px; height: 36px;
-      border-radius: 50%;
-      background: var(--brand);
-      color: #fff;
-      font-weight: 800;
-      font-size: .95rem;
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 10px;
-    }
-    .phase-card h3 { font-size: .92rem; font-weight: 700; margin-bottom: 4px; }
-    .phase-card .dur { font-size: .75rem; color: var(--muted); }
-    .phase-card .mini-bar {
-      height: 5px;
-      background: #e8f0fe;
-      border-radius: 99px;
-      margin-top: 12px;
-      overflow: hidden;
-    }
-    .phase-card .mini-fill {
-      height: 100%;
-      background: var(--brand);
-      border-radius: 99px;
-      transition: width .4s;
-    }
-    .phase-card .mini-pct {
-      font-size: .73rem;
-      color: var(--muted);
-      margin-top: 4px;
-      text-align: right;
-    }
-
-    /* ── OVERALL PROGRESS ── */
-    .overall-card {
-      background: linear-gradient(135deg, var(--brand) 0%, #1976d2 100%);
-      color: #fff;
-      border-radius: var(--radius);
-      padding: 28px;
-      margin-bottom: 24px;
-    }
-    .overall-card h2 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
-    .overall-card .big-pct {
-      font-size: 3rem;
-      font-weight: 800;
-      line-height: 1;
-      margin: 8px 0;
-    }
-    .overall-card .sub { font-size: .85rem; opacity: .8; }
-    .overall-bar {
-      height: 10px;
-      background: rgba(255,255,255,.25);
-      border-radius: 99px;
-      margin-top: 14px;
-      overflow: hidden;
-    }
-    .overall-fill {
-      height: 100%;
-      background: #fff;
-      border-radius: 99px;
-      transition: width .4s;
-    }
-
-    /* ── INDICATOR PILLS ── */
-    .indicators { display: flex; flex-direction: column; gap: 8px; }
-    .indicator {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 10px 14px;
-      background: #f8faff;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      font-size: .87rem;
-    }
-    .indicator::before {
-      content: '📊';
-      font-size: 1rem;
-    }
-
-    /* ── SECTION HIDDEN ── */
-    .section { display: none; }
-    .section.active { display: block; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 640px) {
-      .header-inner { gap: 10px; }
-      .header-badge { display: none; }
-      main { padding: 0 12px; }
-      .card { padding: 18px; }
-      .phase-header { flex-wrap: wrap; }
-      .phase-badge { margin-left: 0; }
-    }
+    table {border-collapse:collapse;}
+    .gradient-bg {background:#0B1D3A !important;}
   </style>
+  <![endif]-->
 </head>
-<body>
+<body style="margin:0; padding:0; background-color:#EAECF0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100;">
 
-<header>
-  <div class="header-inner">
-    <div class="logo-box">UP</div>
-    <div class="header-text">
-      <h1>POP — Processo de Novo Cliente</h1>
-      <p>Procedimento Operacional Padrão · UPTECH</p>
-    </div>
-    <div class="header-badge">POP-COM-001 · v1.0 · Abril/2026</div>
-  </div>
-</header>
+  <!-- Outer wrapper -->
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#EAECF0;">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
 
-<nav>
-  <div class="nav-inner">
-    <button class="active" onclick="showSection('visao-geral')">🏠 Visão Geral</button>
-    <button onclick="showSection('responsabilidades')">👥 Responsabilidades</button>
-    <button onclick="showSection('sistemas')">🔧 Sistemas</button>
-    <button onclick="showSection('detalhes')">📄 Detalhes do Processo</button>
-    <button onclick="showSection('timeline')">📅 Timeline</button>
-    <button onclick="showSection('indicadores')">📊 Indicadores</button>
-  </div>
-</nav>
+        <!-- Main container -->
+        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:680px;">
 
-<main>
+          <!-- ========== TOP IMAGE ========== -->
+          <tr>
+            <td align="center" style="padding:0;">
+              <img
+                src="img-fusao.jpg"
+                alt="UP Finance e Ação Tecnologia se uniram — Agora somos UP380 Tecnologia e Finanças"
+                width="680"
+                style="display:block; width:100%; max-width:680px; height:auto; border-radius:12px 12px 0 0;"
+              />
+            </td>
+          </tr>
 
-  <!-- ══════════════ VISÃO GERAL ══════════════ -->
-  <div id="visao-geral" class="section active">
+          <!-- ========== GRADIENT DIVIDER ========== -->
+          <tr>
+            <td style="padding:0;">
+              <div style="height:4px; background: linear-gradient(90deg, #F5922A 0%, #2B6BFF 50%, #0B1D3A 100%);"></div>
+            </td>
+          </tr>
 
-    <div class="overall-card">
-      <h2>Progresso Geral do Processo</h2>
-      <div class="big-pct" id="overall-pct">0%</div>
-      <div class="sub" id="overall-sub">0 de 0 itens concluídos</div>
-      <div class="overall-bar"><div class="overall-fill" id="overall-fill" style="width:0%"></div></div>
-    </div>
+          <!-- ========== HEADLINE ========== -->
+          <tr>
+            <td align="center" style="padding:44px 40px 8px 40px; background-color:#FFFFFF;">
+              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:14px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#F5922A;">
+                Uma nova fase
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding:12px 40px 12px 40px; background-color:#FFFFFF;">
+              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:30px; line-height:40px; font-weight:700; color:#0B1D3A;">
+                Tecnologia, eficiência e inteligência<br/>unidas pelo seu financeiro.
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td align="center" style="padding:16px 60px 36px 60px; background-color:#FFFFFF;">
+              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:17px; line-height:28px; color:#5A6B7E;">
+                A <strong style="color:#0B1D3A;">UP Finance</strong> e a <strong style="color:#0B1D3A;">Ação Tecnologia</strong> agora caminham juntas.
+              </div>
+            </td>
+          </tr>
 
-    <div class="card">
-      <div class="card-title">
-        <div class="icon">📋</div>
-        Sobre este POP
-      </div>
-      <p style="font-size:.9rem;line-height:1.65;color:#374151;margin-bottom:12px;">
-        Este Procedimento Operacional Padrão estabelece as etapas, responsabilidades, ferramentas e critérios de qualidade para o processo de entrada de novos clientes na UPTECH, desde a geração do lead até o início da operação assistida.
-      </p>
-      <p style="font-size:.9rem;line-height:1.65;color:#374151;">
-        O objetivo é garantir uma experiência padronizada, consistente e de alta qualidade para cada novo cliente, minimizando retrabalho, falhas de comunicação e gaps operacionais.
-      </p>
-    </div>
+          <!-- ========== ORANGE ACCENT LINE ========== -->
+          <tr>
+            <td align="center" style="background-color:#FFFFFF; padding:0 40px;">
+              <div style="width:60px; height:3px; background-color:#F5922A; border-radius:2px;"></div>
+            </td>
+          </tr>
 
-    <div class="card">
-      <div class="card-title">
-        <div class="icon">🗂️</div>
-        Fases do Processo
-      </div>
-      <div class="phases-grid" id="phases-grid"></div>
-    </div>
+          <!-- ========== BODY TEXT ========== -->
+          <tr>
+            <td style="padding:32px 44px 0 44px; background-color:#FFFFFF; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16px; line-height:28px; color:#3D4F63;">
+              <p style="margin:0 0 20px 0;">
+                Hoje damos um passo importante na nossa trajetória. Essa união nasce com um objetivo muito claro: <strong style="color:#0B1D3A;">integrar inteligência financeira com tecnologia aplicada</strong>, entregando soluções completas — do diagnóstico à execução.
+              </p>
+              <p style="margin:0 0 20px 0;">
+                Mais do que uma fusão, esse movimento representa a <strong style="color:#0B1D3A;">evolução do nosso modelo de atuação</strong>, conectando estratégia, dados e tecnologia para gerar ainda mais resultado para o seu negócio.
+              </p>
+            </td>
+          </tr>
 
-  </div>
+          <!-- ========== BENEFITS SECTION ========== -->
+          <tr>
+            <td style="padding:24px 44px 8px 44px; background-color:#FFFFFF;">
+              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:#F5922A;">
+                O que muda para você
+              </div>
+            </td>
+          </tr>
 
-  <!-- ══════════════ RESPONSABILIDADES ══════════════ -->
-  <div id="responsabilidades" class="section">
-    <div class="card">
-      <div class="card-title"><div class="icon">👥</div>Responsabilidades por Função</div>
-      <div style="overflow-x:auto;">
-        <table class="data-table">
-          <thead><tr><th>Função / Área</th><th>Responsabilidades</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Comercial</strong></td><td>Prospecção, qualificação, apresentação de proposta, negociação, confecção e envio do contrato</td></tr>
-            <tr><td><strong>CS (Customer Success)</strong></td><td>Onboarding, kickoff, acompanhamento do cliente, notificações e alinhamentos durante a implantação</td></tr>
-            <tr><td><strong>Implantador</strong></td><td>Diagnóstico técnico, setup de sistemas, treinamentos, reuniões técnicas e plano de ação</td></tr>
-            <tr><td><strong>Financeiro</strong></td><td>Cadastro do cliente, configuração de faturamento conforme contrato</td></tr>
-            <tr><td><strong>Tecnologia</strong></td><td>Setup de ambiente interno, configurações de sistemas contratados</td></tr>
-            <tr><td><strong>Gestor de Operações</strong></td><td>Alocação de analistas, remanejamento de equipe, notificações pós-liberação de acessos</td></tr>
-            <tr><td><strong>Automação (Sistema)</strong></td><td>Cadastro automático do cliente e contrato no Kamino após assinatura</td></tr>
-          </tbody>
+          <!-- Benefit Cards -->
+          <tr>
+            <td style="padding:20px 36px 12px 36px; background-color:#FFFFFF;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                <!-- Row 1 -->
+                <tr>
+                  <td width="50%" style="padding:6px;" valign="top">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
+                      <tr>
+                        <td style="padding:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                          <div style="font-size:26px; margin-bottom:10px;">⚡</div>
+                          <div style="font-size:14px; font-weight:700; color:#0B1D3A; margin-bottom:6px;">Mais automação</div>
+                          <div style="font-size:13px; color:#5A6B7E; line-height:20px;">Eficiência real nos processos financeiros</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="50%" style="padding:6px;" valign="top">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
+                      <tr>
+                        <td style="padding:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                          <div style="font-size:26px; margin-bottom:10px;">📊</div>
+                          <div style="font-size:14px; font-weight:700; color:#0B1D3A; margin-bottom:6px;">Maior controle</div>
+                          <div style="font-size:13px; color:#5A6B7E; line-height:20px;">Visibilidade total das informações</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+                <!-- Row 2 -->
+                <tr>
+                  <td width="50%" style="padding:6px;" valign="top">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
+                      <tr>
+                        <td style="padding:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                          <div style="font-size:26px; margin-bottom:10px;">🚀</div>
+                          <div style="font-size:14px; font-weight:700; color:#0B1D3A; margin-bottom:6px;">Soluções escaláveis</div>
+                          <div style="font-size:13px; color:#5A6B7E; line-height:20px;">Rápidas, integradas e sob medida</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                  <td width="50%" style="padding:6px;" valign="top">
+                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
+                      <tr>
+                        <td style="padding:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+                          <div style="font-size:26px; margin-bottom:10px;">🎯</div>
+                          <div style="font-size:14px; font-weight:700; color:#0B1D3A; margin-bottom:6px;">Menos retrabalho</div>
+                          <div style="font-size:13px; color:#5A6B7E; line-height:20px;">Produtividade e resultados mensuráveis</div>
+                        </td>
+                      </tr>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ========== HIGHLIGHT BLOCK ========== -->
+          <tr>
+            <td style="padding:24px 44px 32px 44px; background-color:#FFFFFF;">
+              <table role="presentation" width="100%" style="background:linear-gradient(135deg, #0B1D3A 0%, #163162 100%); border-radius:12px;">
+                <tr>
+                  <td style="padding:28px 32px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:19px; line-height:30px; color:#FFFFFF; text-align:center;">
+                    <span style="color:#F5922A; font-weight:700;">Na prática,</span> sua rotina e relacionamento conosco permanecem os mesmos — apenas <strong>evoluímos nossa capacidade de entrega.</strong>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ========== PARA CLIENTES AÇÃO TECNOLOGIA ========== -->
+          <tr>
+            <td style="padding:0 44px 8px 44px; background-color:#FFFFFF;">
+              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:#F5922A;">
+                Para você, cliente Ação Tecnologia
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 44px 8px 44px; background-color:#FFFFFF; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16px; line-height:28px; color:#3D4F63;">
+              <p style="margin:0 0 16px 0;">
+                Além de toda a expertise em tecnologia que você já conhece, agora seu negócio conta também com <strong style="color:#0B1D3A;">inteligência financeira integrada</strong>:
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 36px 24px 36px; background-color:#FFFFFF;">
+              <table role="presentation" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
+                <tr>
+                  <td style="padding:22px 28px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:15px; color:#3D4F63; line-height:30px;">
+                    <span style="color:#F5922A; font-weight:700;">💰</span>&nbsp; Gestão financeira estratégica e planejamento<br/>
+                    <span style="color:#F5922A; font-weight:700;">📈</span>&nbsp; Controle de fluxo de caixa e conciliação bancária<br/>
+                    <span style="color:#F5922A; font-weight:700;">🔍</span>&nbsp; Diagnóstico financeiro e identificação de oportunidades<br/>
+                    <span style="color:#F5922A; font-weight:700;">📊</span>&nbsp; Indicadores financeiros (KPIs) para tomada de decisão<br/>
+                    <span style="color:#F5922A; font-weight:700;">🎯</span>&nbsp; Redução de custos e otimização de resultados
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ========== PARA CLIENTES UP FINANCE ========== -->
+          <tr>
+            <td style="padding:8px 44px 8px 44px; background-color:#FFFFFF;">
+              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:#2B6BFF;">
+                Para você, cliente UP Finance
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:8px 44px 8px 44px; background-color:#FFFFFF; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16px; line-height:28px; color:#3D4F63;">
+              <p style="margin:0 0 16px 0;">
+                Toda a inteligência financeira que você já confia, agora potencializada com <strong style="color:#0B1D3A;">tecnologia de ponta</strong>:
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:0 36px 32px 36px; background-color:#FFFFFF;">
+              <table role="presentation" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
+                <tr>
+                  <td style="padding:22px 28px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:15px; color:#3D4F63; line-height:30px;">
+                    <span style="color:#2B6BFF; font-weight:700;">⚙️</span>&nbsp; Automação de processos e rotinas operacionais<br/>
+                    <span style="color:#2B6BFF; font-weight:700;">🔗</span>&nbsp; Integrações entre plataformas, ERPs e sistemas<br/>
+                    <span style="color:#2B6BFF; font-weight:700;">💻</span>&nbsp; Desenvolvimento de soluções sob medida<br/>
+                    <span style="color:#2B6BFF; font-weight:700;">🛡️</span>&nbsp; Infraestrutura, segurança e suporte técnico<br/>
+                    <span style="color:#2B6BFF; font-weight:700;">📋</span>&nbsp; Dashboards e relatórios inteligentes em tempo real
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ========== CLOSING TEXT + CTA ========== -->
+          <tr>
+            <td style="padding:0 44px 12px 44px; background-color:#FFFFFF; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16px; line-height:28px; color:#3D4F63;">
+              <p style="margin:0 0 16px 0;">
+                Seguimos com o mesmo compromisso de sempre: <strong style="color:#0B1D3A;">gerar resultados reais para o seu negócio</strong>, agora com ainda mais tecnologia, integração e inteligência.
+              </p>
+              <p style="margin:0;">
+                Quer conhecer melhor os benefícios da fusão e como podemos agregar ainda mais ao seu negócio? Agende uma visita com nosso time — será um prazer apresentar tudo de perto.
+              </p>
+            </td>
+          </tr>
+
+          <!-- ========== CTA BUTTON ========== -->
+          <tr>
+            <td align="center" style="padding:20px 44px 44px 44px; background-color:#FFFFFF; border-radius:0 0 12px 12px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td align="center" style="border-radius:10px; background:linear-gradient(135deg, #F5922A 0%, #E8732A 100%);">
+                    <a href="https://wa.me/5562981159328"
+                       target="_blank"
+                       style="display:inline-block; padding:16px 40px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16px; font-weight:700; color:#FFFFFF; text-decoration:none; border-radius:10px; letter-spacing:0.5px;">
+                      Agendar conversa →
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- ========== FOOTER ========== -->
+          <tr>
+            <td style="padding:0;">
+              <div style="height:4px; background: linear-gradient(90deg, #F5922A 0%, #2B6BFF 50%, #0B1D3A 100%);"></div>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:36px 40px; background-color:#070F1E; text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-radius:0 0 12px 12px;">
+              <div style="font-size:18px; font-weight:700; color:#FFFFFF; margin-bottom:4px;">
+                UP380 Tecnologia e Finanças
+              </div>
+              <div style="font-size:13px; color:#6A7E96; margin-bottom:16px;">
+                Inteligência financeira + tecnologia aplicada
+              </div>
+              <div style="margin-bottom:16px;">
+                <a href="mailto:contato@up380.com.br" style="color:#F5922A; text-decoration:none; font-size:14px;">contato@up380.com.br</a>
+                <span style="color:#2D3E52; padding:0 8px;">|</span>
+                <span style="color:#8FA3B8; font-size:14px;">(62) 99855-0304</span>
+              </div>
+              <div style="color:#3D4F63; font-size:12px;">
+                © 2026 UP380 Tecnologia e Finanças. Todos os direitos reservados.
+              </div>
+            </td>
+          </tr>
+
         </table>
-      </div>
-    </div>
-  </div>
+        <!-- /Main container -->
 
-  <!-- ══════════════ SISTEMAS ══════════════ -->
-  <div id="sistemas" class="section">
-    <div class="card">
-      <div class="card-title"><div class="icon">🔧</div>Sistemas e Ferramentas Utilizados</div>
-      <div style="overflow-x:auto;">
-        <table class="data-table">
-          <thead><tr><th>Sistema / Ferramenta</th><th>Uso</th></tr></thead>
-          <tbody>
-            <tr><td><strong>Ploomes</strong></td><td>CRM — registro de leads, propostas e oportunidades</td></tr>
-            <tr><td><strong>Zapsign / E-mail / Teams / WhatsApp</strong></td><td>Envio e assinatura de contratos</td></tr>
-            <tr><td><strong>Kamino</strong></td><td>Cadastro automático de cliente e contrato</td></tr>
-            <tr><td><strong>ClickUp</strong></td><td>Gestão de projetos de implantação e tarefas</td></tr>
-            <tr><td><strong>SharePoint</strong></td><td>Armazenamento de contratos, documentos e relatórios</td></tr>
-            <tr><td><strong>UPMAP</strong></td><td>Documentação de processos e base de conhecimento</td></tr>
-            <tr><td><strong>Teams / WhatsApp</strong></td><td>Comunicação interna e com o cliente</td></tr>
-            <tr><td><strong>Sistema do Cliente</strong></td><td>Diagnóstico, configurações e treinamentos no ambiente do cliente</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+      </td>
+    </tr>
+  </table>
+  <!-- /Outer wrapper -->
 
-  <!-- ══════════════ DETALHES DO PROCESSO ══════════════ -->
-  <div id="detalhes" class="section">
-
-    <!-- FASE 1 -->
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">1</div>
-        <div class="phase-info">
-          <h2>Marketing e Prospecção</h2>
-          <div class="meta">Responsável: Marketing / Comercial</div>
-        </div>
-        <div class="phase-badge">⏱ Contínuo</div>
-      </div>
-      <div class="desc-text">Fase inicial onde o lead é atraído e demonstra interesse nos serviços UPTECH. O objetivo é qualificar o contato e agendar a reunião inicial com o comercial.</div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Lead entra no funil de marketing</li>
-        <li>Lead demonstra interesse ativo nos serviços</li>
-        <li>Comercial agenda reunião de alinhamento inicial</li>
-        <li>Lead preenche formulário para registro no CRM (Ploomes)</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="dpct-fase1">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="dbar-fase1" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="dcl-fase1">
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase1')"><span class="check-text">Lead registrado no CRM com dados completos</span><span class="check-system">Ploomes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase1')"><span class="check-text">Reunião inicial agendada e confirmada</span><span class="check-system">Teams / Presencial</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase1')"><span class="check-text">Formulário de pré-qualificação preenchido</span><span class="check-system">Ploomes</span></label>
-      </div>
-    </div>
-
-    <!-- FASE 2 -->
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">2</div>
-        <div class="phase-info">
-          <h2>Qualificação e Proposta Comercial</h2>
-          <div class="meta">Responsável: Comercial</div>
-        </div>
-        <div class="phase-badge">⏱ ~1-3 dias</div>
-      </div>
-      <div class="desc-text">O comercial realiza a reunião inicial, avalia o potencial do cliente e apresenta proposta personalizada. Esta fase define se a oportunidade avança ou é encerrada.</div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Realizar reunião inicial com o cliente (Teams ou Presencial)</li>
-        <li>Avaliar qualificação do lead</li>
-        <li>Gerar proposta comercial no Ploomes</li>
-        <li>Apresentar proposta e negociar condições</li>
-      </ul>
-      <div class="decision-box">
-        <div class="decision-title">⚠️ DECISÃO: Cliente qualificado?</div>
-        <div class="decision-row">
-          <div class="decision-option yes">✔ SIM — Avançar para apresentação de proposta</div>
-          <div class="decision-option no">✖ NÃO — Encerrar oportunidade no CRM (Ploomes) e arquivar</div>
-        </div>
-      </div>
-      <div class="decision-box">
-        <div class="decision-title">⚠️ DECISÃO: Proposta aceita?</div>
-        <div class="decision-row">
-          <div class="decision-option yes">✔ SIM — Avançar para Contratação</div>
-          <div class="decision-option no">✖ NÃO — Registrar "Declinou" no CRM e encerrar oportunidade</div>
-        </div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="dpct-fase2">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="dbar-fase2" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="dcl-fase2">
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase2')"><span class="check-text">Reunião inicial realizada e registrada</span><span class="check-system">Ploomes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase2')"><span class="check-text">Qualificação definida (qualificado / não qualificado)</span><span class="check-system">Ploomes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase2')"><span class="check-text">Proposta gerada e enviada ao cliente</span><span class="check-system">Ploomes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase2')"><span class="check-text">Resultado da negociação registrado no CRM</span><span class="check-system">Ploomes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase2')"><span class="check-text">Se não avançar: oportunidade encerrada corretamente no CRM</span><span class="check-system">Ploomes</span></label>
-      </div>
-    </div>
-
-    <!-- FASE 3 -->
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">3</div>
-        <div class="phase-info">
-          <h2>Contratação e Formalização</h2>
-          <div class="meta">Responsável: Comercial / Financeiro</div>
-        </div>
-        <div class="phase-badge">⏱ ~1-2 dias</div>
-      </div>
-      <div class="desc-text">Após aceite da proposta, o contrato é confeccionado, enviado para assinatura e formalizado internamente. Dispara os processos de setup, financeiro e implantação.</div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Confeccionar contrato conforme proposta aprovada</li>
-        <li>Enviar contrato para assinatura dos envolvidos (Zapsign, E-mail, Teams ou WhatsApp)</li>
-        <li>Aguardar retorno do contrato assinado</li>
-        <li>Salvar contrato assinado na pasta de contratos (SharePoint)</li>
-        <li>Efetuar faturamento conforme contrato</li>
-        <li>Formalizar no chat do Teams de "Entrada de Clientes"</li>
-        <li>Criar ou converter grupo de comunicação com o cliente (WhatsApp/Teams)</li>
-        <li>AUTOMAÇÃO: Sistema realiza cadastro do cliente e contrato no Kamino</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="dpct-fase3">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="dbar-fase3" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="dcl-fase3">
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase3')"><span class="check-text">Contrato confeccionado conforme proposta aprovada</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase3')"><span class="check-text">Contrato enviado para assinatura</span><span class="check-system">Zapsign / E-mail / Teams / WhatsApp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase3')"><span class="check-text">Contrato assinado recebido e salvo</span><span class="check-system">SharePoint</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase3')"><span class="check-text">Faturamento configurado conforme contrato</span><span class="check-system">Financeiro</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase3')"><span class="check-text">Entrada formalizada no canal interno</span><span class="check-system">Teams — Entrada de Clientes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase3')"><span class="check-text">Grupo de comunicação criado/convertido</span><span class="check-system">WhatsApp / Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase3')"><span class="check-text">Cliente e contrato cadastrados automaticamente</span><span class="check-system">Kamino (Automação)</span></label>
-      </div>
-    </div>
-
-    <!-- FASE 4 -->
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">4</div>
-        <div class="phase-info">
-          <h2>Setup</h2>
-          <div class="meta">Responsável: Implantador / TI / Financeiro</div>
-        </div>
-        <div class="phase-badge">⏱ ~10 dias</div>
-      </div>
-      <div class="desc-text">Fase de preparação interna. Envolve ajuste do projeto de implantação no ClickUp, montagem do setup técnico, agendamentos e alinhamento com todas as áreas envolvidas.</div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Ajustar projeto de implantação criado pela automação (ClickUp)</li>
-        <li>Efetuar montagem de setup — documentar o processo do cliente (SharePoint)</li>
-        <li>Agendar reunião com implantador</li>
-        <li>CS agenda reunião interna de start da operação com todas as áreas: Financeiro, Implantador, Tecnologia, Gestor de Operações</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="dpct-fase4">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="dbar-fase4" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="dcl-fase4">
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase4')"><span class="check-text">Projeto de implantação ajustado no ClickUp</span><span class="check-system">ClickUp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase4')"><span class="check-text">Documento de setup e processo do cliente elaborado</span><span class="check-system">SharePoint</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase4')"><span class="check-text">Reunião com implantador agendada</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase4')"><span class="check-text">Reunião interna de start realizada com todas as áreas</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase4')"><span class="check-text">Financeiro notificado para cadastro e faturamento</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase4')"><span class="check-text">Implantador com agendas reservadas</span><span class="check-system">ClickUp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase4')"><span class="check-text">Tecnologia executou setup do ambiente</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase4')"><span class="check-text">Analista operacional alocado pelo Gestor de Operações</span></label>
-      </div>
-    </div>
-
-    <!-- FASE 5 -->
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">5</div>
-        <div class="phase-info">
-          <h2>Kickoff</h2>
-          <div class="meta">Responsável: CS / Comercial</div>
-        </div>
-        <div class="phase-badge">⏱ 1 dia + reunião</div>
-      </div>
-      <div class="desc-text">Reunião de boas-vindas e alinhamento inicial com o cliente. Momento de apresentar a equipe, definir expectativas, levantar acessos e iniciar o diagnóstico do negócio.</div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Agendar reunião de KickOff com o cliente</li>
-        <li>CS envia boas-vindas e prepara a agenda da reunião</li>
-        <li>Realizar reunião de KickOff (Teams, WhatsApp ou Presencial)</li>
-        <li>Efetuar levantamento de acessos e informações necessários</li>
-      </ul>
-      <div class="activities-title" style="margin-top:14px;">Pauta do KickOff</div>
-      <ul class="activity-list">
-        <li>Apresentação da equipe UPTECH responsável pelo cliente</li>
-        <li>Alinhamento de expectativas e cronograma</li>
-        <li>Levantamento de informações: sistemas, acessos, processos</li>
-        <li>Próximos passos e agenda do diagnóstico</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="dpct-fase5">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="dbar-fase5" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="dcl-fase5">
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase5')"><span class="check-text">Reunião de KickOff agendada e confirmada com o cliente</span><span class="check-system">Teams / WhatsApp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase5')"><span class="check-text">Agenda e pauta enviadas ao cliente</span><span class="check-system">E-mail / Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase5')"><span class="check-text">KickOff realizado e gravado (quando aplicável)</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase5')"><span class="check-text">Levantamento de acessos necessários iniciado</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase5')"><span class="check-text">Próximos passos comunicados ao cliente</span><span class="check-system">Teams / WhatsApp</span></label>
-      </div>
-    </div>
-
-    <!-- FASE 6 -->
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">6</div>
-        <div class="phase-info">
-          <h2>Diagnóstico do Negócio</h2>
-          <div class="meta">Responsável: Implantador / CS</div>
-        </div>
-        <div class="phase-badge">⏱ ~3-4 dias</div>
-      </div>
-      <div class="desc-text">Análise financeira e operacional do negócio do cliente para entender o contexto, processos e necessidades. Base para elaboração do plano de ação.</div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Agendar reunião de diagnóstico financeiro</li>
-        <li>Realizar diagnóstico financeiro do negócio do cliente</li>
-        <li>Analisar informações da base de conhecimento interna</li>
-        <li>Salvar relatório de diagnóstico no SharePoint do cliente</li>
-        <li>Registrar informações na base de conhecimento (UPMAP)</li>
-      </ul>
-      <div class="activities-title" style="margin-top:14px;">Itens do Diagnóstico Financeiro</div>
-      <ul class="activity-list">
-        <li>Caminho do dinheiro (fluxo financeiro)</li>
-        <li>Como é feito o faturamento</li>
-        <li>Fluxo de caixa atual</li>
-        <li>Comissões e política de pagamentos</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="dpct-fase6">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="dbar-fase6" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="dcl-fase6">
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase6')"><span class="check-text">Reunião de diagnóstico agendada e realizada</span><span class="check-system">Teams / Presencial</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase6')"><span class="check-text">Caminho do dinheiro mapeado</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase6')"><span class="check-text">Faturamento e fluxo de caixa documentados</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase6')"><span class="check-text">Comissões e pagamentos levantados</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase6')"><span class="check-text">Relatório de diagnóstico salvo</span><span class="check-system">SharePoint</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase6')"><span class="check-text">Informações registradas na base de conhecimento</span><span class="check-system">UPMAP</span></label>
-      </div>
-    </div>
-
-    <!-- FASE 7 -->
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">7</div>
-        <div class="phase-info">
-          <h2>Diagnóstico do Ambiente</h2>
-          <div class="meta">Responsável: Implantador / CS</div>
-        </div>
-        <div class="phase-badge">⏱ ~4 dias</div>
-      </div>
-      <div class="desc-text">Análise técnica do ambiente, sistemas e processos operacionais do cliente. Resulta em um plano de ação estruturado com prioridades e responsáveis.</div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Realizar diagnóstico do ambiente e processos do cliente (sistema do cliente)</li>
-        <li>Realizar reunião técnica com controller e TI do cliente</li>
-        <li>Gerar plano de ação a partir do diagnóstico</li>
-        <li>CS notifica o cliente com o plano de ação</li>
-        <li>Atualizar plano de ação no projeto (ClickUp)</li>
-        <li>Atualizar documentação do cliente (UPMAP e SharePoint)</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="dpct-fase7">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="dbar-fase7" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="dcl-fase7">
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase7')"><span class="check-text">Diagnóstico do ambiente e processos realizado</span><span class="check-system">Sistema do cliente</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase7')"><span class="check-text">Reunião técnica com controller e TI realizada</span><span class="check-system">Teams / Presencial</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase7')"><span class="check-text">Plano de ação gerado e documentado</span><span class="check-system">ClickUp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase7')"><span class="check-text">Cliente notificado sobre o plano de ação</span><span class="check-system">Teams / WhatsApp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase7')"><span class="check-text">Plano de ação atualizado no projeto</span><span class="check-system">ClickUp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase7')"><span class="check-text">Documentação do cliente atualizada</span><span class="check-system">UPMAP / SharePoint</span></label>
-      </div>
-    </div>
-
-    <!-- FASE 8 -->
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">8</div>
-        <div class="phase-info">
-          <h2>Implantação</h2>
-          <div class="meta">Responsável: Implantador / TI</div>
-        </div>
-        <div class="phase-badge">⏱ ~10 dias</div>
-      </div>
-      <div class="desc-text">Execução do plano de ação: configuração de sistemas, treinamentos, ajustes de processos e validação. Fase crítica que exige colaboração ativa do cliente para liberação de acessos.</div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Efetuar alinhamento operacional com a equipe interna</li>
-        <li>Solicitar acessos necessários ao cliente</li>
-        <li>Aguardar liberação de acessos</li>
-        <li>Registrar acessos liberados na base de conhecimento</li>
-        <li>Notificar Gestor de Operações após liberações</li>
-        <li>Efetuar configuração do sistema interno ou agendar treinamento (caso ST)</li>
-        <li>Realizar tratativas, ajustes de sistema e processos</li>
-        <li>Realizar validação interna</li>
-        <li>Atualizar documentação do cliente (UPMAP e SharePoint)</li>
-      </ul>
-      <div class="decision-box">
-        <div class="decision-title">⚠️ DECISÃO: Acessos recebidos?</div>
-        <div class="decision-row">
-          <div class="decision-option yes">✔ SIM — Prosseguir para configurações e implantação</div>
-          <div class="decision-option no">✖ NÃO — Acionar comercial para alinhar colaboração com o cliente</div>
-        </div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="dpct-fase8">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="dbar-fase8" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="dcl-fase8">
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase8')"><span class="check-text">Alinhamento operacional interno realizado</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase8')"><span class="check-text">Lista de acessos necessários enviada ao cliente</span><span class="check-system">Teams / WhatsApp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase8')"><span class="check-text">Todos os acessos necessários recebidos</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase8')"><span class="check-text">Acessos registrados na base de conhecimento</span><span class="check-system">UPMAP</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase8')"><span class="check-text">Gestor de Operações notificado após liberações</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase8')"><span class="check-text">Configurações de sistema realizadas / treinamento agendado</span><span class="check-system">Sistema interno / ST</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase8')"><span class="check-text">Tratativas e ajustes de processos executados</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase8')"><span class="check-text">Validação interna concluída</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase8')"><span class="check-text">Documentação do cliente atualizada</span><span class="check-system">UPMAP / SharePoint</span></label>
-      </div>
-    </div>
-
-    <!-- FASE 9 -->
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">9</div>
-        <div class="phase-info">
-          <h2>Start da Operação Assistida</h2>
-          <div class="meta">Responsável: CS / Gestor de Operações</div>
-        </div>
-        <div class="phase-badge">⏱ Contínuo</div>
-      </div>
-      <div class="desc-text">Início formal da operação com acompanhamento intensivo da equipe UPTECH. O cliente começa a receber o serviço contratado com suporte proativo.</div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>CS agenda reunião interna de start da operação</li>
-        <li>Gestor de Operações confirma analista alocado</li>
-        <li>Início da operação assistida com acompanhamento da equipe</li>
-        <li>Comunicação contínua via WhatsApp e Teams</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="dpct-fase9">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="dbar-fase9" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="dcl-fase9">
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase9')"><span class="check-text">Reunião interna de start da operação realizada</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase9')"><span class="check-text">Analista responsável pelo cliente confirmado e alocado</span><span class="check-system">ClickUp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase9')"><span class="check-text">Cliente comunicado sobre início da operação</span><span class="check-system">WhatsApp / Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase9')"><span class="check-text">Operação assistida iniciada</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updateDetalhes('fase9')"><span class="check-text">Canais de comunicação ativos e funcionando</span><span class="check-system">WhatsApp / Teams</span></label>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- ══════════════ FASE 1 ══════════════ -->
-  <div id="fase1" class="section">
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">1</div>
-        <div class="phase-info">
-          <h2>Marketing e Prospecção</h2>
-          <div class="meta">Responsável: Marketing / Comercial</div>
-        </div>
-        <div class="phase-badge">⏱ Contínuo</div>
-      </div>
-      <div class="desc-text">
-        Fase inicial onde o lead é atraído e demonstra interesse nos serviços UPTECH. O objetivo é qualificar o contato e agendar a reunião inicial com o comercial.
-      </div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Lead entra no funil de marketing</li>
-        <li>Lead demonstra interesse ativo nos serviços</li>
-        <li>Comercial agenda reunião de alinhamento inicial</li>
-        <li>Lead preenche formulário para registro no CRM (Ploomes)</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="pct-fase1">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="bar-fase1" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="cl-fase1">
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase1')"><span class="check-text">Lead registrado no CRM com dados completos</span><span class="check-system">Ploomes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase1')"><span class="check-text">Reunião inicial agendada e confirmada</span><span class="check-system">Teams / Presencial</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase1')"><span class="check-text">Formulário de pré-qualificação preenchido</span><span class="check-system">Ploomes</span></label>
-      </div>
-      <br><button class="reset-btn" onclick="resetPhase('fase1')">↺ Reiniciar fase</button>
-    </div>
-  </div>
-
-  <!-- ══════════════ FASE 2 ══════════════ -->
-  <div id="fase2" class="section">
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">2</div>
-        <div class="phase-info">
-          <h2>Qualificação e Proposta Comercial</h2>
-          <div class="meta">Responsável: Comercial</div>
-        </div>
-        <div class="phase-badge">⏱ ~1-3 dias</div>
-      </div>
-      <div class="desc-text">
-        O comercial realiza a reunião inicial, avalia o potencial do cliente e apresenta proposta personalizada. Esta fase define se a oportunidade avança ou é encerrada.
-      </div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Realizar reunião inicial com o cliente (Teams ou Presencial)</li>
-        <li>Avaliar qualificação do lead</li>
-        <li>Gerar proposta comercial no Ploomes</li>
-        <li>Apresentar proposta e negociar condições</li>
-      </ul>
-      <div class="decision-box">
-        <div class="decision-title">⚠️ DECISÃO: Cliente qualificado?</div>
-        <div class="decision-row">
-          <div class="decision-option yes">✔ SIM — Avançar para apresentação de proposta</div>
-          <div class="decision-option no">✖ NÃO — Encerrar oportunidade no CRM (Ploomes) e arquivar</div>
-        </div>
-      </div>
-      <div class="decision-box">
-        <div class="decision-title">⚠️ DECISÃO: Proposta aceita?</div>
-        <div class="decision-row">
-          <div class="decision-option yes">✔ SIM — Avançar para Contratação</div>
-          <div class="decision-option no">✖ NÃO — Registrar "Declinou" no CRM e encerrar oportunidade</div>
-        </div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="pct-fase2">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="bar-fase2" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="cl-fase2">
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase2')"><span class="check-text">Reunião inicial realizada e registrada</span><span class="check-system">Ploomes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase2')"><span class="check-text">Qualificação definida (qualificado / não qualificado)</span><span class="check-system">Ploomes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase2')"><span class="check-text">Proposta gerada e enviada ao cliente</span><span class="check-system">Ploomes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase2')"><span class="check-text">Resultado da negociação registrado no CRM</span><span class="check-system">Ploomes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase2')"><span class="check-text">Se não avançar: oportunidade encerrada corretamente no CRM</span><span class="check-system">Ploomes</span></label>
-      </div>
-      <br><button class="reset-btn" onclick="resetPhase('fase2')">↺ Reiniciar fase</button>
-    </div>
-  </div>
-
-  <!-- ══════════════ FASE 3 ══════════════ -->
-  <div id="fase3" class="section">
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">3</div>
-        <div class="phase-info">
-          <h2>Contratação e Formalização</h2>
-          <div class="meta">Responsável: Comercial / Financeiro</div>
-        </div>
-        <div class="phase-badge">⏱ ~1-2 dias</div>
-      </div>
-      <div class="desc-text">
-        Após aceite da proposta, o contrato é confeccionado, enviado para assinatura e formalizado internamente. Dispara os processos de setup, financeiro e implantação.
-      </div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Confeccionar contrato conforme proposta aprovada</li>
-        <li>Enviar contrato para assinatura dos envolvidos (Zapsign, E-mail, Teams ou WhatsApp)</li>
-        <li>Aguardar retorno do contrato assinado</li>
-        <li>Salvar contrato assinado na pasta de contratos (SharePoint)</li>
-        <li>Efetuar faturamento conforme contrato</li>
-        <li>Formalizar no chat do Teams de "Entrada de Clientes"</li>
-        <li>Criar ou converter grupo de comunicação com o cliente (WhatsApp/Teams)</li>
-        <li>AUTOMAÇÃO: Sistema realiza cadastro do cliente e contrato no Kamino</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="pct-fase3">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="bar-fase3" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="cl-fase3">
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase3')"><span class="check-text">Contrato confeccionado conforme proposta aprovada</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase3')"><span class="check-text">Contrato enviado para assinatura</span><span class="check-system">Zapsign / E-mail / Teams / WhatsApp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase3')"><span class="check-text">Contrato assinado recebido e salvo</span><span class="check-system">SharePoint</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase3')"><span class="check-text">Faturamento configurado conforme contrato</span><span class="check-system">Financeiro</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase3')"><span class="check-text">Entrada formalizada no canal interno</span><span class="check-system">Teams — Entrada de Clientes</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase3')"><span class="check-text">Grupo de comunicação criado/convertido</span><span class="check-system">WhatsApp / Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase3')"><span class="check-text">Cliente e contrato cadastrados automaticamente</span><span class="check-system">Kamino (Automação)</span></label>
-      </div>
-      <br><button class="reset-btn" onclick="resetPhase('fase3')">↺ Reiniciar fase</button>
-    </div>
-  </div>
-
-  <!-- ══════════════ FASE 4 ══════════════ -->
-  <div id="fase4" class="section">
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">4</div>
-        <div class="phase-info">
-          <h2>Setup</h2>
-          <div class="meta">Responsável: Implantador / TI / Financeiro</div>
-        </div>
-        <div class="phase-badge">⏱ ~10 dias</div>
-      </div>
-      <div class="desc-text">
-        Fase de preparação interna. Envolve ajuste do projeto de implantação no ClickUp, montagem do setup técnico, agendamentos e alinhamento com todas as áreas envolvidas.
-      </div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Ajustar projeto de implantação criado pela automação (ClickUp)</li>
-        <li>Efetuar montagem de setup — documentar o processo do cliente (SharePoint)</li>
-        <li>Agendar reunião com implantador</li>
-        <li>CS agenda reunião interna de start da operação com todas as áreas: Financeiro, Implantador, Tecnologia, Gestor de Operações</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="pct-fase4">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="bar-fase4" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="cl-fase4">
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase4')"><span class="check-text">Projeto de implantação ajustado no ClickUp</span><span class="check-system">ClickUp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase4')"><span class="check-text">Documento de setup e processo do cliente elaborado</span><span class="check-system">SharePoint</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase4')"><span class="check-text">Reunião com implantador agendada</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase4')"><span class="check-text">Reunião interna de start realizada com todas as áreas</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase4')"><span class="check-text">Financeiro notificado para cadastro e faturamento</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase4')"><span class="check-text">Implantador com agendas reservadas</span><span class="check-system">ClickUp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase4')"><span class="check-text">Tecnologia executou setup do ambiente</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase4')"><span class="check-text">Analista operacional alocado pelo Gestor de Operações</span></label>
-      </div>
-      <br><button class="reset-btn" onclick="resetPhase('fase4')">↺ Reiniciar fase</button>
-    </div>
-  </div>
-
-  <!-- ══════════════ FASE 5 ══════════════ -->
-  <div id="fase5" class="section">
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">5</div>
-        <div class="phase-info">
-          <h2>Kickoff</h2>
-          <div class="meta">Responsável: CS / Comercial</div>
-        </div>
-        <div class="phase-badge">⏱ 1 dia + reunião</div>
-      </div>
-      <div class="desc-text">
-        Reunião de boas-vindas e alinhamento inicial com o cliente. Momento de apresentar a equipe, definir expectativas, levantar acessos e iniciar o diagnóstico do negócio.
-      </div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Agendar reunião de KickOff com o cliente</li>
-        <li>CS envia boas-vindas e prepara a agenda da reunião</li>
-        <li>Realizar reunião de KickOff (Teams, WhatsApp ou Presencial)</li>
-        <li>Efetuar levantamento de acessos e informações necessários</li>
-      </ul>
-      <div class="activities-title" style="margin-top:14px;">Pauta do KickOff</div>
-      <ul class="activity-list">
-        <li>Apresentação da equipe UPTECH responsável pelo cliente</li>
-        <li>Alinhamento de expectativas e cronograma</li>
-        <li>Levantamento de informações: sistemas, acessos, processos</li>
-        <li>Próximos passos e agenda do diagnóstico</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="pct-fase5">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="bar-fase5" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="cl-fase5">
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase5')"><span class="check-text">Reunião de KickOff agendada e confirmada com o cliente</span><span class="check-system">Teams / WhatsApp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase5')"><span class="check-text">Agenda e pauta enviadas ao cliente</span><span class="check-system">E-mail / Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase5')"><span class="check-text">KickOff realizado e gravado (quando aplicável)</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase5')"><span class="check-text">Levantamento de acessos necessários iniciado</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase5')"><span class="check-text">Próximos passos comunicados ao cliente</span><span class="check-system">Teams / WhatsApp</span></label>
-      </div>
-      <br><button class="reset-btn" onclick="resetPhase('fase5')">↺ Reiniciar fase</button>
-    </div>
-  </div>
-
-  <!-- ══════════════ FASE 6 ══════════════ -->
-  <div id="fase6" class="section">
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">6</div>
-        <div class="phase-info">
-          <h2>Diagnóstico do Negócio</h2>
-          <div class="meta">Responsável: Implantador / CS</div>
-        </div>
-        <div class="phase-badge">⏱ ~3-4 dias</div>
-      </div>
-      <div class="desc-text">
-        Análise financeira e operacional do negócio do cliente para entender o contexto, processos e necessidades. Base para elaboração do plano de ação.
-      </div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Agendar reunião de diagnóstico financeiro</li>
-        <li>Realizar diagnóstico financeiro do negócio do cliente</li>
-        <li>Analisar informações da base de conhecimento interna</li>
-        <li>Salvar relatório de diagnóstico no SharePoint do cliente</li>
-        <li>Registrar informações na base de conhecimento (UPMAP)</li>
-      </ul>
-      <div class="activities-title" style="margin-top:14px;">Itens do Diagnóstico Financeiro</div>
-      <ul class="activity-list">
-        <li>Caminho do dinheiro (fluxo financeiro)</li>
-        <li>Como é feito o faturamento</li>
-        <li>Fluxo de caixa atual</li>
-        <li>Comissões e política de pagamentos</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="pct-fase6">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="bar-fase6" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="cl-fase6">
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase6')"><span class="check-text">Reunião de diagnóstico agendada e realizada</span><span class="check-system">Teams / Presencial</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase6')"><span class="check-text">Caminho do dinheiro mapeado</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase6')"><span class="check-text">Faturamento e fluxo de caixa documentados</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase6')"><span class="check-text">Comissões e pagamentos levantados</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase6')"><span class="check-text">Relatório de diagnóstico salvo</span><span class="check-system">SharePoint</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase6')"><span class="check-text">Informações registradas na base de conhecimento</span><span class="check-system">UPMAP</span></label>
-      </div>
-      <br><button class="reset-btn" onclick="resetPhase('fase6')">↺ Reiniciar fase</button>
-    </div>
-  </div>
-
-  <!-- ══════════════ FASE 7 ══════════════ -->
-  <div id="fase7" class="section">
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">7</div>
-        <div class="phase-info">
-          <h2>Diagnóstico do Ambiente</h2>
-          <div class="meta">Responsável: Implantador / CS</div>
-        </div>
-        <div class="phase-badge">⏱ ~4 dias</div>
-      </div>
-      <div class="desc-text">
-        Análise técnica do ambiente, sistemas e processos operacionais do cliente. Resulta em um plano de ação estruturado com prioridades e responsáveis.
-      </div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Realizar diagnóstico do ambiente e processos do cliente (sistema do cliente)</li>
-        <li>Realizar reunião técnica com controller e TI do cliente</li>
-        <li>Gerar plano de ação a partir do diagnóstico</li>
-        <li>CS notifica o cliente com o plano de ação</li>
-        <li>Atualizar plano de ação no projeto (ClickUp)</li>
-        <li>Atualizar documentação do cliente (UPMAP e SharePoint)</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="pct-fase7">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="bar-fase7" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="cl-fase7">
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase7')"><span class="check-text">Diagnóstico do ambiente e processos realizado</span><span class="check-system">Sistema do cliente</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase7')"><span class="check-text">Reunião técnica com controller e TI realizada</span><span class="check-system">Teams / Presencial</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase7')"><span class="check-text">Plano de ação gerado e documentado</span><span class="check-system">ClickUp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase7')"><span class="check-text">Cliente notificado sobre o plano de ação</span><span class="check-system">Teams / WhatsApp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase7')"><span class="check-text">Plano de ação atualizado no projeto</span><span class="check-system">ClickUp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase7')"><span class="check-text">Documentação do cliente atualizada</span><span class="check-system">UPMAP / SharePoint</span></label>
-      </div>
-      <br><button class="reset-btn" onclick="resetPhase('fase7')">↺ Reiniciar fase</button>
-    </div>
-  </div>
-
-  <!-- ══════════════ FASE 8 ══════════════ -->
-  <div id="fase8" class="section">
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">8</div>
-        <div class="phase-info">
-          <h2>Implantação</h2>
-          <div class="meta">Responsável: Implantador / TI</div>
-        </div>
-        <div class="phase-badge">⏱ ~10 dias</div>
-      </div>
-      <div class="desc-text">
-        Execução do plano de ação: configuração de sistemas, treinamentos, ajustes de processos e validação. Fase crítica que exige colaboração ativa do cliente para liberação de acessos.
-      </div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>Efetuar alinhamento operacional com a equipe interna</li>
-        <li>Solicitar acessos necessários ao cliente</li>
-        <li>Aguardar liberação de acessos</li>
-        <li>Registrar acessos liberados na base de conhecimento</li>
-        <li>Notificar Gestor de Operações após liberações</li>
-        <li>Efetuar configuração do sistema interno ou agendar treinamento (caso ST)</li>
-        <li>Realizar tratativas, ajustes de sistema e processos</li>
-        <li>Realizar validação interna</li>
-        <li>Atualizar documentação do cliente (UPMAP e SharePoint)</li>
-      </ul>
-      <div class="decision-box">
-        <div class="decision-title">⚠️ DECISÃO: Acessos recebidos?</div>
-        <div class="decision-row">
-          <div class="decision-option yes">✔ SIM — Prosseguir para configurações e implantação</div>
-          <div class="decision-option no">✖ NÃO — Acionar comercial para alinhar colaboração com o cliente</div>
-        </div>
-      </div>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="pct-fase8">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="bar-fase8" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="cl-fase8">
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase8')"><span class="check-text">Alinhamento operacional interno realizado</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase8')"><span class="check-text">Lista de acessos necessários enviada ao cliente</span><span class="check-system">Teams / WhatsApp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase8')"><span class="check-text">Todos os acessos necessários recebidos</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase8')"><span class="check-text">Acessos registrados na base de conhecimento</span><span class="check-system">UPMAP</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase8')"><span class="check-text">Gestor de Operações notificado após liberações</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase8')"><span class="check-text">Configurações de sistema realizadas / treinamento agendado</span><span class="check-system">Sistema interno / ST</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase8')"><span class="check-text">Tratativas e ajustes de processos executados</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase8')"><span class="check-text">Validação interna concluída</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase8')"><span class="check-text">Documentação do cliente atualizada</span><span class="check-system">UPMAP / SharePoint</span></label>
-      </div>
-      <br><button class="reset-btn" onclick="resetPhase('fase8')">↺ Reiniciar fase</button>
-    </div>
-  </div>
-
-  <!-- ══════════════ FASE 9 ══════════════ -->
-  <div id="fase9" class="section">
-    <div class="card">
-      <div class="phase-header">
-        <div class="phase-number">9</div>
-        <div class="phase-info">
-          <h2>Start da Operação Assistida</h2>
-          <div class="meta">Responsável: CS / Gestor de Operações</div>
-        </div>
-        <div class="phase-badge">⏱ Contínuo</div>
-      </div>
-      <div class="desc-text">
-        Início formal da operação com acompanhamento intensivo da equipe UPTECH. O cliente começa a receber o serviço contratado com suporte proativo.
-      </div>
-      <div class="activities-title">Atividades</div>
-      <ul class="activity-list">
-        <li>CS agenda reunião interna de start da operação</li>
-        <li>Gestor de Operações confirma analista alocado</li>
-        <li>Início da operação assistida com acompanhamento da equipe</li>
-        <li>Comunicação contínua via WhatsApp e Teams</li>
-      </ul>
-      <div class="progress-wrap">
-        <div class="progress-label"><span>Checklist</span><span id="pct-fase9">0%</span></div>
-        <div class="progress-bar"><div class="progress-fill" id="bar-fase9" style="width:0%"></div></div>
-      </div>
-      <div class="checklist" id="cl-fase9">
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase9')"><span class="check-text">Reunião interna de start da operação realizada</span><span class="check-system">Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase9')"><span class="check-text">Analista responsável pelo cliente confirmado e alocado</span><span class="check-system">ClickUp</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase9')"><span class="check-text">Cliente comunicado sobre início da operação</span><span class="check-system">WhatsApp / Teams</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase9')"><span class="check-text">Operação assistida iniciada</span></label>
-        <label class="check-item"><input type="checkbox" onchange="updatePhase('fase9')"><span class="check-text">Canais de comunicação ativos e funcionando</span><span class="check-system">WhatsApp / Teams</span></label>
-      </div>
-      <br><button class="reset-btn" onclick="resetPhase('fase9')">↺ Reiniciar fase</button>
-    </div>
-  </div>
-
-  <!-- ══════════════ TIMELINE ══════════════ -->
-  <div id="timeline" class="section">
-    <div class="card">
-      <div class="card-title"><div class="icon">📅</div>Timeline Resumida do Processo</div>
-      <div style="overflow-x:auto;">
-        <table class="data-table">
-          <thead><tr><th>#</th><th>Fase</th><th>Duração</th><th>Principal Responsável</th></tr></thead>
-          <tbody>
-            <tr><td>1</td><td>Marketing e Prospecção</td><td>Contínuo</td><td>Marketing / Comercial</td></tr>
-            <tr><td>2</td><td>Qualificação e Proposta Comercial</td><td>~1-3 dias</td><td>Comercial</td></tr>
-            <tr><td>3</td><td>Contratação e Formalização</td><td>~1-2 dias</td><td>Comercial / Financeiro</td></tr>
-            <tr><td>4</td><td>Setup</td><td>~10 dias</td><td>Implantador / TI / Financeiro</td></tr>
-            <tr><td>5</td><td>Kickoff</td><td>1 dia + reunião</td><td>CS / Comercial</td></tr>
-            <tr><td>6</td><td>Diagnóstico do Negócio</td><td>~3-4 dias</td><td>Implantador / CS</td></tr>
-            <tr><td>7</td><td>Diagnóstico do Ambiente</td><td>~4 dias</td><td>Implantador / CS</td></tr>
-            <tr><td>8</td><td>Implantação</td><td>~10 dias</td><td>Implantador / TI</td></tr>
-            <tr><td>9</td><td>Start da Operação Assistida</td><td>Contínuo</td><td>CS / Gestor de Operações</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Visual timeline -->
-    <div class="card">
-      <div class="card-title"><div class="icon">⏱</div>Visão Cronológica</div>
-      <div id="visual-timeline"></div>
-    </div>
-  </div>
-
-  <!-- ══════════════ INDICADORES ══════════════ -->
-  <div id="indicadores" class="section">
-    <div class="card">
-      <div class="card-title"><div class="icon">📊</div>Indicadores de Qualidade</div>
-      <p style="font-size:.88rem;color:var(--muted);margin-bottom:18px;">Para garantir a efetividade do processo, os seguintes indicadores devem ser monitorados:</p>
-      <div class="indicators">
-        <div class="indicator">Tempo médio de contratação (da proposta ao contrato assinado)</div>
-        <div class="indicator">Tempo médio de implantação (do setup ao início da operação)</div>
-        <div class="indicator">Taxa de churn pré-operação (clientes que desistem durante a implantação)</div>
-        <div class="indicator">Índice de acessos recebidos dentro do prazo</div>
-        <div class="indicator">Satisfação do cliente no KickOff (NPS inicial)</div>
-        <div class="indicator">Percentual de checklists concluídos por fase</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-title"><div class="icon">✅</div>Progresso dos Checklists por Fase</div>
-      <div id="indicators-table"></div>
-    </div>
-  </div>
-
-</main>
-
-<script>
-  // ── DATA ──
-  const phases = [
-    { id: 'fase1', label: 'Marketing e Prospecção',         dur: 'Contínuo',      resp: 'Marketing / Comercial' },
-    { id: 'fase2', label: 'Qualificação e Proposta',        dur: '~1-3 dias',     resp: 'Comercial' },
-    { id: 'fase3', label: 'Contratação e Formalização',     dur: '~1-2 dias',     resp: 'Comercial / Financeiro' },
-    { id: 'fase4', label: 'Setup',                          dur: '~10 dias',      resp: 'Implantador / TI' },
-    { id: 'fase5', label: 'Kickoff',                        dur: '1 dia + reunião', resp: 'CS / Comercial' },
-    { id: 'fase6', label: 'Diagnóstico do Negócio',         dur: '~3-4 dias',     resp: 'Implantador / CS' },
-    { id: 'fase7', label: 'Diagnóstico do Ambiente',        dur: '~4 dias',       resp: 'Implantador / CS' },
-    { id: 'fase8', label: 'Implantação',                    dur: '~10 dias',      resp: 'Implantador / TI' },
-    { id: 'fase9', label: 'Start da Operação Assistida',    dur: 'Contínuo',      resp: 'CS / Gestor de Ops' },
-  ];
-
-  // ── NAV ──
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    document.querySelectorAll('nav button').forEach((b, i) => {
-      const sections = ['visao-geral','responsabilidades','sistemas','detalhes','timeline','indicadores'];
-      b.classList.toggle('active', sections[i] === id);
-    });
-    if (id === 'indicadores') buildIndicatorsTable();
-  }
-
-  // ── CHECKLIST ──
-  function updatePhase(phaseId) {
-    const cl = document.getElementById('cl-' + phaseId);
-    const boxes = cl.querySelectorAll('input[type=checkbox]');
-    const total = boxes.length;
-    const done  = [...boxes].filter(b => b.checked).length;
-    const pct   = total ? Math.round(done / total * 100) : 0;
-
-    cl.querySelectorAll('.check-item').forEach(item => {
-      item.classList.toggle('done', item.querySelector('input').checked);
-    });
-
-    document.getElementById('pct-' + phaseId).textContent = pct + '%';
-    document.getElementById('bar-' + phaseId).style.width  = pct + '%';
-
-    updateOverall();
-    updatePhasesGrid();
-  }
-
-  function updateDetalhes(phaseId) {
-    const cl = document.getElementById('dcl-' + phaseId);
-    if (!cl) return;
-    const boxes = cl.querySelectorAll('input[type=checkbox]');
-    const total = boxes.length;
-    const done  = [...boxes].filter(b => b.checked).length;
-    const pct   = total ? Math.round(done / total * 100) : 0;
-    cl.querySelectorAll('.check-item').forEach(item => {
-      item.classList.toggle('done', item.querySelector('input').checked);
-    });
-    document.getElementById('dpct-' + phaseId).textContent = pct + '%';
-    document.getElementById('dbar-' + phaseId).style.width  = pct + '%';
-  }
-
-  function resetPhase(phaseId) {
-    const cl = document.getElementById('cl-' + phaseId);
-    cl.querySelectorAll('input[type=checkbox]').forEach(b => b.checked = false);
-    cl.querySelectorAll('.check-item').forEach(i => i.classList.remove('done'));
-    updatePhase(phaseId);
-  }
-
-  // ── OVERALL ──
-  function updateOverall() {
-    let total = 0, done = 0;
-    phases.forEach(p => {
-      const cl = document.getElementById('cl-' + p.id);
-      if (!cl) return;
-      const boxes = cl.querySelectorAll('input[type=checkbox]');
-      total += boxes.length;
-      done  += [...boxes].filter(b => b.checked).length;
-    });
-    const pct = total ? Math.round(done / total * 100) : 0;
-    document.getElementById('overall-pct').textContent  = pct + '%';
-    document.getElementById('overall-sub').textContent  = done + ' de ' + total + ' itens concluídos';
-    document.getElementById('overall-fill').style.width = pct + '%';
-  }
-
-  // ── PHASES GRID ──
-  function updatePhasesGrid() {
-    const grid = document.getElementById('phases-grid');
-    grid.innerHTML = phases.map((p, i) => {
-      const cl    = document.getElementById('cl-' + p.id);
-      const boxes = cl ? cl.querySelectorAll('input[type=checkbox]') : [];
-      const total = boxes.length;
-      const done  = [...boxes].filter(b => b.checked).length;
-      const pct   = total ? Math.round(done / total * 100) : 0;
-      return `
-        <div class="phase-card" onclick="showSection('${p.id}')">
-          <div class="num">${i + 1}</div>
-          <h3>${p.label}</h3>
-          <div class="dur">⏱ ${p.dur} · ${p.resp}</div>
-          <div class="mini-bar"><div class="mini-fill" style="width:${pct}%"></div></div>
-          <div class="mini-pct">${done}/${total} · ${pct}%</div>
-        </div>`;
-    }).join('');
-  }
-
-  // ── INDICATORS TABLE ──
-  function buildIndicatorsTable() {
-    const rows = phases.map((p, i) => {
-      const cl    = document.getElementById('cl-' + p.id);
-      const boxes = cl ? cl.querySelectorAll('input[type=checkbox]') : [];
-      const total = boxes.length;
-      const done  = [...boxes].filter(b => b.checked).length;
-      const pct   = total ? Math.round(done / total * 100) : 0;
-      const color = pct === 100 ? '#2e7d32' : pct > 0 ? '#e65100' : '#9e9e9e';
-      return `<tr>
-        <td>${i + 1}</td>
-        <td>${p.label}</td>
-        <td>${done} / ${total}</td>
-        <td style="color:${color};font-weight:700;">${pct}%</td>
-      </tr>`;
-    }).join('');
-    document.getElementById('indicators-table').innerHTML = `
-      <div style="overflow-x:auto;">
-        <table class="data-table">
-          <thead><tr><th>#</th><th>Fase</th><th>Itens</th><th>Progresso</th></tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
-      </div>`;
-  }
-
-  // ── VISUAL TIMELINE ──
-  function buildVisualTimeline() {
-    const items = [
-      { n:1, label:'Marketing',     dur:'Contínuo',      color:'#0d47a1', width:'100%' },
-      { n:2, label:'Qualificação',  dur:'1-3 dias',       color:'#1565c0', width:'15%' },
-      { n:3, label:'Contratação',   dur:'1-2 dias',       color:'#1976d2', width:'10%' },
-      { n:4, label:'Setup',         dur:'~10 dias',       color:'#1e88e5', width:'35%' },
-      { n:5, label:'Kickoff',       dur:'1 dia',          color:'#e65100', width:'8%'  },
-      { n:6, label:'Diag. Negócio', dur:'3-4 dias',       color:'#2e7d32', width:'18%' },
-      { n:7, label:'Diag. Ambiente','dur':'~4 dias',      color:'#388e3c', width:'20%' },
-      { n:8, label:'Implantação',   dur:'~10 dias',       color:'#0277bd', width:'35%' },
-      { n:9, label:'Operação',      dur:'Contínuo',       color:'#6a1b9a', width:'100%' },
-    ];
-    document.getElementById('visual-timeline').innerHTML = items.map(it => `
-      <div style="margin-bottom:12px;">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
-          <span style="font-size:.78rem;font-weight:700;color:var(--muted);width:16px;text-align:right;">${it.n}</span>
-          <span style="font-size:.85rem;font-weight:600;">${it.label}</span>
-          <span style="font-size:.75rem;color:var(--muted);">${it.dur}</span>
-        </div>
-        <div style="display:flex;gap:6px;align-items:center;">
-          <div style="width:20px;"></div>
-          <div style="flex:1;background:#e8f0fe;border-radius:6px;height:22px;overflow:hidden;">
-            <div style="width:${it.width};background:${it.color};height:100%;border-radius:6px;"></div>
-          </div>
-        </div>
-      </div>
-    `).join('');
-  }
-
-  // ── INIT ──
-  updatePhasesGrid();
-  updateOverall();
-  buildVisualTimeline();
-</script>
 </body>
 </html>
