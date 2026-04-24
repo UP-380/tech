@@ -1,291 +1,1342 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="x-apple-disable-message-reformatting" />
-  <title>UP380 + Ação Tecnologia — Uma Nova Era</title>
-  <!--[if mso]>
-  <style>
-    table {border-collapse:collapse;}
-    .gradient-bg {background:#0B1D3A !important;}
-  </style>
-  <![endif]-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crosara Contabilidade — Apresentação de Projetos & Iniciativas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ===== RESET ===== */
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: #1A2B3C;
+    background: #FAFBFC;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display:block; }
+  a { text-decoration:none; color: inherit; }
+  ul { list-style: none; }
+
+  /* ===== PALETTE (from logo Ação Tecnologia) ===== */
+  :root {
+    --blue:       #1E5AA0;
+    --blue-dark:  #14447D;
+    --blue-light: #3E7CC8;
+    --blue-soft:  #E8F0FA;
+    --orange:     #F07B3F;
+    --orange-dark:#D65F24;
+    --orange-light:#FCB68A;
+    --orange-soft:#FFF0E5;
+    --bg:         #FAFBFC;
+    --card:       #FFFFFF;
+    --ink:        #1A2B3C;
+    --ink-2:      #37475A;
+    --muted:      #5C6B7D;
+    --line:       #E5EAF0;
+    --line-2:     #F1F4F8;
+    --success:    #2A9D67;
+    --warning:    #C79024;
+  }
+
+  /* ===== LAYOUT ===== */
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 96px 0; position: relative; }
+  .section-kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: var(--orange);
+    padding: 6px 14px;
+    background: var(--orange-soft);
+    border-radius: 100px;
+    margin-bottom: 18px;
+  }
+  .section-title {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: var(--ink);
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    max-width: 780px;
+  }
+  .section-title em { color: var(--orange); font-style: normal; }
+  .section-title b { color: var(--blue); font-weight: 800; }
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 700px;
+    line-height: 1.65;
+  }
+
+  /* ===== NAV ===== */
+  .nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250, 251, 252, 0.85);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid transparent;
+    transition: border-color .3s, box-shadow .3s;
+  }
+  .nav.scrolled { border-bottom-color: var(--line); box-shadow: 0 2px 24px rgba(30,90,160,0.06); }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .nav-brand { display:flex; align-items:center; gap: 12px; }
+  .nav-brand img { height: 32px; }
+  .nav-brand-text { font-size: 0.85rem; font-weight: 600; color: var(--muted); border-left: 1px solid var(--line); padding-left: 12px; }
+  .nav-brand-text strong { color: var(--blue); font-weight: 700; }
+  .nav-links { display: flex; gap: 32px; align-items: center; }
+  .nav-links a {
+    font-size: 0.88rem; font-weight: 500; color: var(--muted);
+    transition: color .2s; position: relative;
+  }
+  .nav-links a:hover { color: var(--blue); }
+  .nav-cta {
+    background: var(--blue); color: #fff !important;
+    padding: 10px 20px; border-radius: 100px; font-weight: 600;
+    transition: all .2s;
+  }
+  .nav-cta:hover { background: var(--blue-dark); transform: translateY(-1px); }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 140px 0 100px;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(30,90,160,0.08) 0%, transparent 40%),
+      radial-gradient(circle at 85% 80%, rgba(240,123,63,0.08) 0%, transparent 40%),
+      var(--bg);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content:''; position: absolute; top:-100px; right:-100px; width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(240,123,63,0.12) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .hero-inner { display:grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    padding: 8px 16px; border-radius: 100px;
+    font-size: 0.82rem; font-weight: 600; color: var(--blue);
+    margin-bottom: 24px;
+    box-shadow: 0 2px 10px rgba(30,90,160,0.05);
+  }
+  .hero-badge .dot { width: 8px; height: 8px; background: var(--orange); border-radius: 50%; animation: pulse 2s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .hero h1 {
+    font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+    font-weight: 900;
+    color: var(--ink);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 24px;
+  }
+  .hero h1 em { color: var(--orange); font-style: normal; }
+  .hero h1 b { color: var(--blue); font-weight: 900; }
+  .hero p.lead {
+    font-size: 1.2rem; color: var(--muted); line-height: 1.6;
+    margin-bottom: 36px; max-width: 580px;
+  }
+  .hero-meta { display:flex; gap: 28px; flex-wrap: wrap; }
+  .hero-meta-item { display: flex; align-items: center; gap: 10px; font-size: 0.88rem; color: var(--ink-2); }
+  .hero-meta-item svg { color: var(--orange); }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+    height: 480px;
+  }
+  .hero-card {
+    position: absolute;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 20px 60px rgba(30,90,160,0.10);
+  }
+  .hero-card-1 {
+    top: 40px; left: 0; width: 280px;
+    transform: rotate(-3deg);
+  }
+  .hero-card-2 {
+    top: 180px; right: 0; width: 260px;
+    transform: rotate(2deg);
+    border-top: 4px solid var(--orange);
+  }
+  .hero-card-3 {
+    bottom: 30px; left: 60px; width: 300px;
+    transform: rotate(-1deg);
+    border-left: 4px solid var(--blue);
+  }
+  .hc-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1.2px; font-weight: 700; color: var(--muted); margin-bottom: 6px; }
+  .hc-title { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 14px; }
+  .hc-stat { display:flex; align-items: baseline; gap: 6px; margin-bottom: 6px; }
+  .hc-stat-num { font-size: 1.8rem; font-weight: 800; color: var(--blue); line-height: 1; }
+  .hc-stat-num.orange { color: var(--orange); }
+  .hc-stat-text { font-size: 0.82rem; color: var(--muted); }
+  .hc-chip { display: inline-block; padding: 4px 10px; border-radius: 100px; font-size: 0.72rem; font-weight: 600; }
+  .hc-chip.ok { background: #E8F6EE; color: var(--success); }
+  .hc-chip.wait { background: #FEF6E7; color: var(--warning); }
+  .hc-chip.new { background: var(--orange-soft); color: var(--orange-dark); }
+
+  /* ===== PILLARS (3 grandes frentes) ===== */
+  .pillars { background: var(--card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .pillars-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 48px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--line-2);
+  }
+  .pillar {
+    background: var(--card);
+    padding: 40px 32px;
+    position: relative;
+    transition: all .3s;
+  }
+  .pillar:hover { background: var(--blue-soft); }
+  .pillar-number {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 2px;
+    color: var(--orange);
+    margin-bottom: 14px;
+  }
+  .pillar-icon {
+    width: 56px; height: 56px; border-radius: 16px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 20px;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(30,90,160,0.2);
+  }
+  .pillar:nth-child(2) .pillar-icon { background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%); box-shadow: 0 8px 24px rgba(240,123,63,0.2); }
+  .pillar h3 { font-size: 1.25rem; font-weight: 800; color: var(--ink); margin-bottom: 10px; letter-spacing: -0.01em; }
+  .pillar p { font-size: 0.95rem; color: var(--muted); line-height: 1.65; }
+  .pillar-tag { position: absolute; top: 24px; right: 24px; font-size: 0.7rem; font-weight: 700; color: var(--blue); background: var(--blue-soft); padding: 4px 10px; border-radius: 100px; }
+  .pillar:nth-child(2) .pillar-tag { color: var(--orange-dark); background: var(--orange-soft); }
+
+  /* ===== STATS ROW ===== */
+  .stats-row {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; margin-top: 64px;
+  }
+  .stat {
+    padding: 24px; border-radius: 16px;
+    background: var(--bg); border: 1px solid var(--line);
+    text-align: left;
+  }
+  .stat-num { font-size: 2.4rem; font-weight: 800; color: var(--blue); line-height: 1; margin-bottom: 6px; letter-spacing: -0.02em; }
+  .stat-num.orange { color: var(--orange); }
+  .stat-text { font-size: 0.88rem; color: var(--muted); line-height: 1.4; }
+
+  /* ===== PROJECT CATEGORIES ===== */
+  .cat-nav {
+    display: flex; gap: 8px; flex-wrap: wrap;
+    margin: 40px 0 32px; padding: 8px;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 100px; width: fit-content;
+  }
+  .cat-chip {
+    padding: 10px 20px;
+    border-radius: 100px;
+    font-size: 0.85rem; font-weight: 600;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .25s;
+    background: transparent; border: none;
+    font-family: inherit;
+  }
+  .cat-chip:hover { color: var(--blue); }
+  .cat-chip.active { background: var(--blue); color: #fff; }
+
+  .category-block { margin-bottom: 56px; }
+  .category-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 24px; padding-bottom: 16px;
+    border-bottom: 2px solid var(--line);
+  }
+  .category-bullet {
+    width: 12px; height: 40px; border-radius: 4px;
+    background: var(--blue);
+  }
+  .category-block:nth-child(2n) .category-bullet { background: var(--orange); }
+  .category-block h3 {
+    font-size: 1.5rem; font-weight: 800; color: var(--ink);
+    letter-spacing: -0.01em;
+    flex: 1;
+  }
+  .category-count {
+    font-size: 0.82rem; color: var(--muted); font-weight: 600;
+    background: var(--line-2); padding: 6px 14px; border-radius: 100px;
+  }
+
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+    gap: 20px;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 24px;
+    transition: all .3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+  .project-card::before {
+    content:''; position: absolute; top:0; left:0; right:0; height: 3px;
+    background: linear-gradient(90deg, var(--blue), var(--blue-light));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .35s;
+  }
+  .project-card:hover {
+    border-color: var(--blue-light);
+    box-shadow: 0 12px 40px rgba(30,90,160,0.08);
+    transform: translateY(-3px);
+  }
+  .project-card:hover::before { transform: scaleX(1); }
+  .project-card.orange::before { background: linear-gradient(90deg, var(--orange), var(--orange-light)); }
+  .project-card.orange:hover { border-color: var(--orange-light); box-shadow: 0 12px 40px rgba(240,123,63,0.08); }
+
+  .project-head {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 12px; margin-bottom: 12px;
+  }
+  .project-card h4 {
+    font-size: 1rem; font-weight: 700; color: var(--ink);
+    line-height: 1.3; letter-spacing: -0.005em;
+    flex: 1;
+  }
+  .status {
+    font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 10px; border-radius: 100px;
+    white-space: nowrap;
+  }
+  .status.done { background: #E8F6EE; color: var(--success); }
+  .status.progress { background: var(--blue-soft); color: var(--blue); }
+  .status.pending { background: #FEF6E7; color: var(--warning); }
+  .status.paused { background: #FDECEC; color: #C04A3F; }
+  .project-card p {
+    font-size: 0.88rem; color: var(--muted); line-height: 1.6;
+  }
+  .project-note {
+    margin-top: 12px; padding-top: 12px; border-top: 1px dashed var(--line);
+    font-size: 0.78rem; color: var(--ink-2);
+  }
+  .project-note strong { color: var(--orange); font-weight: 700; }
+
+  /* ===== VORTAX SECTION ===== */
+  .vortax-section {
+    background:
+      radial-gradient(circle at 90% 10%, rgba(30,90,160,0.06) 0%, transparent 50%),
+      radial-gradient(circle at 10% 90%, rgba(240,123,63,0.06) 0%, transparent 50%),
+      var(--bg);
+  }
+  .vortax-hero {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 28px;
+    padding: 56px;
+    margin-bottom: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .vortax-hero::before {
+    content:''; position: absolute; top:-80px; right:-80px; width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(240,123,63,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+  .vortax-brand {
+    display: inline-flex; align-items: center; gap: 14px;
+    margin-bottom: 20px;
+  }
+  .vortax-logo {
+    width: 54px; height: 54px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 800; font-size: 1.5rem;
+    box-shadow: 0 8px 20px rgba(30,90,160,0.25);
+  }
+  .vortax-brand-text span.t1 { display:block; font-size: 0.75rem; letter-spacing: 2px; font-weight: 600; color: var(--muted); text-transform: uppercase; }
+  .vortax-brand-text span.t2 { display:block; font-size: 1.5rem; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; }
+
+  .vortax-hero h2 {
+    font-size: 2rem; font-weight: 800;
+    line-height: 1.15; color: var(--ink); letter-spacing: -0.02em;
+    margin-bottom: 18px;
+  }
+  .vortax-hero p { font-size: 1.02rem; color: var(--muted); line-height: 1.7; margin-bottom: 14px; }
+  .vortax-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 24px; }
+  .vortax-tag {
+    font-size: 0.78rem; font-weight: 600; color: var(--blue);
+    background: var(--blue-soft);
+    padding: 6px 14px; border-radius: 100px;
+  }
+
+  .vortax-visual {
+    position: relative; height: 380px;
+  }
+  .vortax-layer {
+    position: absolute; background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 16px 40px rgba(30,90,160,0.08);
+  }
+  .vortax-layer-1 {
+    top: 0; right: 0; width: 78%;
+    border-top: 3px solid var(--orange);
+  }
+  .vortax-layer-2 {
+    top: 110px; right: 40px; width: 78%;
+    border-top: 3px solid var(--blue-light);
+  }
+  .vortax-layer-3 {
+    top: 220px; right: 80px; width: 78%;
+    border-top: 3px solid var(--blue);
+  }
+  .vl-label { font-size: 0.7rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .vl-title { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+  .vl-bars { display: flex; align-items: flex-end; gap: 6px; height: 32px; }
+  .vl-bar { flex: 1; background: linear-gradient(to top, var(--blue-light), var(--blue)); border-radius: 3px; }
+  .vl-bar:nth-child(3), .vl-bar:nth-child(5) { background: linear-gradient(to top, var(--orange-light), var(--orange)); }
+  .vl-row { display: flex; gap: 8px; align-items: center; margin-top: 6px; }
+  .vl-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); }
+  .vl-dot.o { background: var(--orange); }
+  .vl-line { flex: 1; height: 4px; background: var(--line-2); border-radius: 2px; overflow: hidden; }
+  .vl-fill { height: 100%; background: var(--blue); border-radius: 2px; }
+
+  /* Architecture grid — modules of Vortax */
+  .arch-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+  }
+  .arch-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px;
+    transition: all .3s;
+  }
+  .arch-card.active { border-color: var(--blue-light); background: linear-gradient(180deg, var(--blue-soft) 0%, var(--card) 60%); }
+  .arch-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(30,90,160,0.06); }
+  .arch-head { display:flex; align-items:center; justify-content: space-between; margin-bottom: 14px; }
+  .arch-icon {
+    width: 36px; height: 36px; border-radius: 10px;
+    background: var(--card); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue);
+  }
+  .arch-card.active .arch-icon { background: var(--blue); color: #fff; border-color: var(--blue); }
+  .arch-status { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; padding: 4px 10px; border-radius: 100px; }
+  .arch-status.on { background: var(--orange-soft); color: var(--orange-dark); }
+  .arch-status.off { background: var(--line-2); color: var(--muted); }
+  .arch-card h4 { font-size: 1.05rem; font-weight: 800; color: var(--ink); margin-bottom: 6px; letter-spacing: -0.01em; }
+  .arch-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+  .modules-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .module-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    transition: all .3s;
+  }
+  .module-card:hover {
+    border-color: var(--blue);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(30,90,160,0.08);
+  }
+  .module-num {
+    position: absolute; top: 24px; right: 24px;
+    width: 40px; height: 40px; border-radius: 12px;
+    background: var(--blue-soft);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--blue); font-weight: 800; font-size: 1.1rem;
+  }
+  .module-card:nth-child(2) .module-num { background: var(--orange-soft); color: var(--orange-dark); }
+  .module-card:nth-child(3) .module-num { background: #E8F0FA; color: var(--blue-dark); }
+  .module-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; margin-bottom: 20px;
+  }
+  .module-card:nth-child(2) .module-icon { background: linear-gradient(135deg, var(--orange) 0%, var(--orange-light) 100%); }
+  .module-card:nth-child(3) .module-icon { background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%); }
+  .module-card h3 {
+    font-size: 1.2rem; font-weight: 800; color: var(--ink);
+    margin-bottom: 8px; letter-spacing: -0.01em;
+  }
+  .module-card .module-obj {
+    font-size: 0.88rem; color: var(--muted);
+    margin-bottom: 20px; line-height: 1.6;
+  }
+  .module-features {
+    display: flex; flex-direction: column; gap: 12px;
+    padding-top: 20px; border-top: 1px solid var(--line);
+  }
+  .module-feature {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.88rem; color: var(--ink-2); line-height: 1.5;
+  }
+  .module-feature svg { flex-shrink: 0; margin-top: 3px; color: var(--blue); }
+  .module-card:nth-child(2) .module-feature svg { color: var(--orange); }
+  .module-card:nth-child(3) .module-feature svg { color: var(--blue-dark); }
+
+  /* ===== ESCALA IA SECTION ===== */
+  .ia-section { background: var(--card); }
+  .ia-intro {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px;
+    align-items: center; margin-bottom: 72px;
+  }
+  .ia-problem {
+    background: var(--bg); border: 1px solid var(--line);
+    border-left: 4px solid var(--orange);
+    border-radius: 16px; padding: 28px;
+  }
+  .ia-problem-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--orange); margin-bottom: 12px; }
+  .ia-problem blockquote {
+    font-size: 1.15rem; font-weight: 600; color: var(--ink);
+    line-height: 1.5; font-style: italic;
+    margin-bottom: 12px;
+  }
+  .ia-problem cite {
+    font-size: 0.82rem; color: var(--muted); font-style: normal;
+  }
+
+  .benefits-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    margin-top: 48px;
+  }
+  .benefit {
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all .3s;
+  }
+  .benefit:hover { border-color: var(--blue); background: var(--card); box-shadow: 0 8px 24px rgba(30,90,160,0.06); }
+  .benefit-head { display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .benefit-icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: var(--blue-soft); color: var(--blue);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .benefit:nth-child(2n) .benefit-icon { background: var(--orange-soft); color: var(--orange); }
+  .benefit h4 { font-size: 0.98rem; font-weight: 700; color: var(--ink); letter-spacing: -0.005em; }
+  .benefit p { font-size: 0.88rem; color: var(--muted); line-height: 1.55; }
+
+  /* Methodology flow */
+  .methodology { background: var(--bg); }
+  .flow-track {
+    margin-top: 56px;
+    position: relative;
+  }
+  .flow-steps {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
+    position: relative;
+  }
+  .flow-connector {
+    position: absolute;
+    top: 50px; left: 12.5%; right: 12.5%;
+    height: 2px; background: var(--line);
+    z-index: 0;
+  }
+  .flow-connector::after {
+    content:''; position: absolute; top:0; left: 0;
+    height: 100%; width: 0%;
+    background: linear-gradient(90deg, var(--blue), var(--orange));
+    animation: flowProgress 2.5s ease-out forwards;
+  }
+  @keyframes flowProgress { to { width: 100%; } }
+
+  .flow-step {
+    text-align: center; padding: 0 16px;
+    position: relative; z-index: 1;
+  }
+  .flow-step-circle {
+    width: 104px; height: 104px; border-radius: 50%;
+    background: var(--card);
+    border: 3px solid var(--blue);
+    margin: 0 auto 20px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; font-weight: 800; color: var(--blue);
+    box-shadow: 0 8px 24px rgba(30,90,160,0.12);
+    position: relative;
+    transition: all .3s;
+  }
+  .flow-step:nth-child(2) .flow-step-circle { border-color: var(--blue-light); color: var(--blue-light); }
+  .flow-step:nth-child(3) .flow-step-circle { border-color: var(--orange); color: var(--orange); }
+  .flow-step:nth-child(4) .flow-step-circle { border-color: var(--orange-dark); color: var(--orange-dark); }
+  .flow-step:hover .flow-step-circle { transform: scale(1.05); }
+
+  .flow-step h4 {
+    font-size: 1rem; font-weight: 800; color: var(--ink);
+    margin-bottom: 8px; letter-spacing: -0.01em;
+  }
+  .flow-step p {
+    font-size: 0.85rem; color: var(--muted); line-height: 1.55;
+  }
+
+  /* BPMN-style swimlane */
+  .swimlanes {
+    margin-top: 72px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 32px;
+    overflow-x: auto;
+  }
+  .swimlanes-title {
+    font-size: 0.88rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1.5px;
+    color: var(--muted); margin-bottom: 24px;
+  }
+  .lane {
+    display: flex; align-items: center;
+    border-left: 4px solid var(--blue);
+    padding: 14px 16px;
+    margin-bottom: 12px;
+    background: var(--bg);
+    border-radius: 8px;
+    gap: 14px;
+    min-width: 820px;
+  }
+  .lane.cliente { border-left-color: var(--orange); }
+  .lane-label {
+    font-size: 0.78rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px;
+    color: var(--blue);
+    min-width: 80px;
+  }
+  .lane.cliente .lane-label { color: var(--orange); }
+  .lane-steps {
+    display: flex; align-items: center; gap: 10px;
+    flex: 1; flex-wrap: wrap;
+  }
+  .lane-pill {
+    font-size: 0.82rem; font-weight: 600;
+    background: var(--card); border: 1px solid var(--line);
+    padding: 8px 14px; border-radius: 100px;
+    color: var(--ink-2);
+    white-space: nowrap;
+  }
+  .lane-arrow {
+    color: var(--muted); font-weight: 700;
+  }
+
+  /* ===== OUTCOMES ===== */
+  .outcomes {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+    margin-top: 56px;
+  }
+  .outcome {
+    text-align: center; padding: 24px 14px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    transition: all .3s;
+  }
+  .outcome:hover { border-color: var(--orange); transform: translateY(-2px); }
+  .outcome-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: var(--orange-soft); color: var(--orange);
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px;
+  }
+  .outcome h5 { font-size: 0.88rem; font-weight: 700; color: var(--ink); }
+
+  /* ===== CTA ===== */
+  .cta {
+    background: linear-gradient(135deg, var(--blue-dark) 0%, var(--blue) 100%);
+    color: #fff;
+    padding: 72px 48px;
+    border-radius: 28px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1000px;
+  }
+  .cta::before {
+    content:''; position: absolute; top:-150px; right:-150px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(240,123,63,0.35) 0%, transparent 60%);
+    border-radius: 50%;
+  }
+  .cta::after {
+    content:''; position: absolute; bottom:-100px; left:-100px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(62,124,200,0.35) 0%, transparent 60%);
+    border-radius: 50%;
+  }
+  .cta h2 {
+    font-size: 2.25rem; font-weight: 800; letter-spacing: -0.02em;
+    line-height: 1.15; margin-bottom: 16px;
+    position: relative; z-index: 1;
+  }
+  .cta h2 em { color: var(--orange-light); font-style: normal; }
+  .cta p { font-size: 1.1rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto 32px; position: relative; z-index: 1; }
+  .cta-meta {
+    display: inline-flex; align-items: center; gap: 16px;
+    background: rgba(255,255,255,0.12); backdrop-filter: blur(10px);
+    padding: 14px 24px; border-radius: 100px;
+    font-size: 0.9rem; font-weight: 500;
+    position: relative; z-index: 1;
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 40px 0; border-top: 1px solid var(--line);
+    background: var(--bg);
+  }
+  .footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .footer-brand { display: flex; align-items: center; gap: 14px; }
+  .footer-brand img { height: 28px; }
+  .footer-copy { font-size: 0.82rem; color: var(--muted); }
+
+  /* ===== ANIMATIONS ===== */
+  .fade-up { opacity: 0; transform: translateY(24px); transition: all .7s cubic-bezier(0.16, 1, 0.3, 1); }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 1024px) {
+    .hero-inner, .vortax-hero, .ia-intro { grid-template-columns: 1fr; gap: 40px; }
+    .hero-visual, .vortax-visual { height: 360px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .modules-grid, .benefits-grid { grid-template-columns: 1fr; }
+    .arch-grid { grid-template-columns: repeat(2, 1fr); }
+    .flow-steps { grid-template-columns: repeat(2, 1fr); gap: 32px 16px; }
+    .flow-connector { display: none; }
+    .outcomes { grid-template-columns: repeat(3, 1fr); }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 640px) {
+    section { padding: 64px 0; }
+    .container { padding: 0 20px; }
+    .nav-links a:not(.nav-cta) { display: none; }
+    .hero { padding: 110px 0 64px; }
+    .vortax-hero { padding: 32px 24px; }
+    .outcomes { grid-template-columns: repeat(2, 1fr); }
+    .hero-visual { display: none; }
+    .projects-grid { grid-template-columns: 1fr; }
+  }
+</style>
 </head>
-<body style="margin:0; padding:0; background-color:#EAECF0; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100;">
+<body>
 
-  <!-- Outer wrapper -->
-  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#EAECF0;">
-    <tr>
-      <td align="center" style="padding:32px 16px;">
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <div class="nav-brand">
+      <img src="logo-acao.png" alt="Ação Tecnologia">
+      <div class="nav-brand-text"><strong>Crosara</strong> · Projetos 2026</div>
+    </div>
+    <div class="nav-links">
+      <a href="#projetos">Projetos</a>
+      <a href="#vortax">Vortax</a>
+      <a href="#escala-ia">Escala de IA</a>
+    </div>
+  </div>
+</nav>
 
-        <!-- Main container -->
-        <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="max-width:680px;">
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="fade-up">
+      <div class="hero-badge"><span class="dot"></span> Apresentação interna — Abril / 2026</div>
+      <h1>Projetos e iniciativas · <b>Crosara Contabilidade</b></h1>
+      <p class="lead">Panorama consolidado das entregas, dos projetos em andamento e das iniciativas internas — incluindo o sistema <strong>Vortax</strong> e a frente de <strong>Escala de IA</strong>.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M12 21a9 9 0 100-18 9 9 0 000 18z"/></svg>
+          25 frentes mapeadas
+        </div>
+        <div class="hero-meta-item">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg>
+          3 frentes principais
+        </div>
+        <div class="hero-meta-item">
+          <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Status 2026
+        </div>
+      </div>
+    </div>
 
-          <!-- ========== TOP IMAGE ========== -->
-          <tr>
-            <td align="center" style="padding:0;">
-              <img
-                src="img-fusao.jpg"
-                alt="UP Finance e Ação Tecnologia se uniram — Agora somos UP380 Tecnologia e Finanças"
-                width="680"
-                style="display:block; width:100%; max-width:680px; height:auto; border-radius:12px 12px 0 0;"
-              />
-            </td>
-          </tr>
+    <div class="hero-visual fade-up" style="transition-delay:.15s">
+      <div class="hero-card hero-card-1">
+        <div class="hc-label">Implantação Domínio</div>
+        <div class="hc-title">PT1 concluída</div>
+        <div class="hc-chip ok">Entregue</div>
+      </div>
+      <div class="hero-card hero-card-2">
+        <div class="hc-label">Vortax</div>
+        <div class="hc-title">Sistema interno da operação</div>
+        <div class="hc-stat"><span class="hc-stat-num orange">1</span><span class="hc-stat-text">módulo (Insights) em desenvolvimento</span></div>
+      </div>
+      <div class="hero-card hero-card-3">
+        <div class="hc-label">Escala de IA</div>
+        <div class="hc-title">Metodologia em 4 etapas</div>
+        <div class="hc-stat"><span class="hc-stat-num">—</span><span class="hc-stat-text">capacitação, MVP, arquitetura, ciclo</span></div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <!-- ========== GRADIENT DIVIDER ========== -->
-          <tr>
-            <td style="padding:0;">
-              <div style="height:4px; background: linear-gradient(90deg, #F5922A 0%, #2B6BFF 50%, #0B1D3A 100%);"></div>
-            </td>
-          </tr>
+<!-- 3 PILARES -->
+<section class="pillars">
+  <div class="container">
+    <span class="section-kicker fade-up">Visão geral</span>
+    <h2 class="section-title fade-up">Três frentes de trabalho em paralelo</h2>
+    <p class="section-subtitle fade-up">A apresentação está organizada em três blocos: o portfólio de projetos da operação, o sistema interno Vortax e a frente de Escala de IA.</p>
 
-          <!-- ========== HEADLINE ========== -->
-          <tr>
-            <td align="center" style="padding:44px 40px 8px 40px; background-color:#FFFFFF;">
-              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:14px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#F5922A;">
-                Uma nova fase
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td align="center" style="padding:12px 40px 12px 40px; background-color:#FFFFFF;">
-              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:30px; line-height:40px; font-weight:700; color:#0B1D3A;">
-                Tecnologia, eficiência e inteligência<br/>unidas pelo seu financeiro.
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td align="center" style="padding:16px 60px 36px 60px; background-color:#FFFFFF;">
-              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:17px; line-height:28px; color:#5A6B7E;">
-                A <strong style="color:#0B1D3A;">UP Finance</strong> e a <strong style="color:#0B1D3A;">Ação Tecnologia</strong> agora caminham juntas.
-              </div>
-            </td>
-          </tr>
+    <div class="pillars-grid fade-up">
+      <div class="pillar">
+        <span class="pillar-tag">Entregas</span>
+        <div class="pillar-number">01 — OPERAÇÃO</div>
+        <div class="pillar-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        </div>
+        <h3>Projetos & Automações</h3>
+        <p>Reestruturação de núcleos, implantação de sistemas, automações no Domínio e ganhos operacionais em fiscal, contábil e administrativo.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Sistema</span>
+        <div class="pillar-number">02 — VORTAX</div>
+        <div class="pillar-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M8 8h8M8 16h5"/></svg>
+        </div>
+        <h3>Vortax</h3>
+        <p>Sistema interno da Crosara para automações, controle e gestão — concentrará as automações sistematizadas da operação. O módulo Insights é a primeira entrega.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-tag">Frente</span>
+        <div class="pillar-number">03 — IA</div>
+        <div class="pillar-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/></svg>
+        </div>
+        <h3>Escala de IA</h3>
+        <p>Frente de capacitação, prototipação de MVPs e implantação de arquiteturas de IA, apoiada por POPs, mentoria e ciclos replicáveis.</p>
+      </div>
+    </div>
 
-          <!-- ========== ORANGE ACCENT LINE ========== -->
-          <tr>
-            <td align="center" style="background-color:#FFFFFF; padding:0 40px;">
-              <div style="width:60px; height:3px; background-color:#F5922A; border-radius:2px;"></div>
-            </td>
-          </tr>
+    <div class="stats-row fade-up">
+      <div class="stat"><div class="stat-num">25</div><div class="stat-text">frentes mapeadas entre entregues e em andamento</div></div>
+      <div class="stat"><div class="stat-num orange">4</div><div class="stat-text">categorias organizando o portfólio de projetos</div></div>
+      <div class="stat"><div class="stat-num">3</div><div class="stat-text">sub-relatórios dentro do módulo Insights (gerencial, tático, estratégico)</div></div>
+      <div class="stat"><div class="stat-num orange">4</div><div class="stat-text">etapas da metodologia Escala de IA</div></div>
+    </div>
+  </div>
+</section>
 
-          <!-- ========== BODY TEXT ========== -->
-          <tr>
-            <td style="padding:32px 44px 0 44px; background-color:#FFFFFF; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16px; line-height:28px; color:#3D4F63;">
-              <p style="margin:0 0 20px 0;">
-                Hoje damos um passo importante na nossa trajetória. Essa união nasce com um objetivo muito claro: <strong style="color:#0B1D3A;">integrar inteligência financeira com tecnologia aplicada</strong>, entregando soluções completas — do diagnóstico à execução.
-              </p>
-              <p style="margin:0 0 20px 0;">
-                Mais do que uma fusão, esse movimento representa a <strong style="color:#0B1D3A;">evolução do nosso modelo de atuação</strong>, conectando estratégia, dados e tecnologia para gerar ainda mais resultado para o seu negócio.
-              </p>
-            </td>
-          </tr>
+<!-- PROJETOS -->
+<section id="projetos">
+  <div class="container">
+    <span class="section-kicker fade-up">Frente 01 · Projetos</span>
+    <h2 class="section-title fade-up">Projetos entregues e em andamento</h2>
+    <p class="section-subtitle fade-up">Portfólio organizado por natureza: estruturação organizacional, sistemas e implantações, automações fiscais e contábeis, infraestrutura e governança.</p>
 
-          <!-- ========== BENEFITS SECTION ========== -->
-          <tr>
-            <td style="padding:24px 44px 8px 44px; background-color:#FFFFFF;">
-              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:#F5922A;">
-                O que muda para você
-              </div>
-            </td>
-          </tr>
+    <!-- Categoria 1: Estruturação -->
+    <div class="category-block fade-up">
+      <div class="category-header">
+        <div class="category-bullet"></div>
+        <h3>Estruturação organizacional & processos</h3>
+        <span class="category-count">7 frentes</span>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-head"><h4>Estruturação do Depto. de Inovação</h4><span class="status done">Entregue</span></div>
+          <p>Desenho e estruturação do departamento visando a mudança de contrato e ganho de maturidade em automações.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Núcleo Simples Nacional</h4><span class="status progress">Em andamento</span></div>
+          <p>Reestruturação para segmentar empresas do SN, movimentação de analistas e migração por etapas com o Lucas na frente de relacionamento.</p>
+          <div class="project-note"><strong>Checkpoint:</strong> e-mails enviados às empresas, tratativas de open finance em curso.</div>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Presumido / Real (Domínio)</h4><span class="status progress">Em andamento</span></div>
+          <p>Definição de checklist e procedimentos em padrão similar ao SN, com avanço conforme apontamento e ingresso de novas empresas.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Processo de Patrimônio</h4><span class="status progress">Em andamento</span></div>
+          <p>Criação do fluxo "to be" entre Fiscal e Contábil para entrada e contabilização de ativos, conduzido junto ao Zeilton.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Onboarding de empresas</h4><span class="status pending">Validação</span></div>
+          <p>Documento elaborado para padronização do onboarding — enviado ao Hugo para validação, ajustes e posterior treinamento.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Contratações — Inovação</h4><span class="status progress">Em andamento</span></div>
+          <p>Identificação da necessidade de pessoas para apoiar a frente de inovação; contratação do Marcelo (alocado em Suporte) e busca de perfil mais aderente.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Mapeamento de macroprocessos</h4><span class="status done">Entregue</span></div>
+          <p>Visão consolidada para sustentar a entrada do analista de automações e direcionar oportunidades de melhoria para as equipes.</p>
+        </div>
+      </div>
+    </div>
 
-          <!-- Benefit Cards -->
-          <tr>
-            <td style="padding:20px 36px 12px 36px; background-color:#FFFFFF;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
-                <!-- Row 1 -->
-                <tr>
-                  <td width="50%" style="padding:6px;" valign="top">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
-                      <tr>
-                        <td style="padding:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                          <div style="font-size:26px; margin-bottom:10px;">⚡</div>
-                          <div style="font-size:14px; font-weight:700; color:#0B1D3A; margin-bottom:6px;">Mais automação</div>
-                          <div style="font-size:13px; color:#5A6B7E; line-height:20px;">Eficiência real nos processos financeiros</div>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                  <td width="50%" style="padding:6px;" valign="top">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
-                      <tr>
-                        <td style="padding:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                          <div style="font-size:26px; margin-bottom:10px;">📊</div>
-                          <div style="font-size:14px; font-weight:700; color:#0B1D3A; margin-bottom:6px;">Maior controle</div>
-                          <div style="font-size:13px; color:#5A6B7E; line-height:20px;">Visibilidade total das informações</div>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-                <!-- Row 2 -->
-                <tr>
-                  <td width="50%" style="padding:6px;" valign="top">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
-                      <tr>
-                        <td style="padding:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                          <div style="font-size:26px; margin-bottom:10px;">🚀</div>
-                          <div style="font-size:14px; font-weight:700; color:#0B1D3A; margin-bottom:6px;">Soluções escaláveis</div>
-                          <div style="font-size:13px; color:#5A6B7E; line-height:20px;">Rápidas, integradas e sob medida</div>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                  <td width="50%" style="padding:6px;" valign="top">
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
-                      <tr>
-                        <td style="padding:20px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-                          <div style="font-size:26px; margin-bottom:10px;">🎯</div>
-                          <div style="font-size:14px; font-weight:700; color:#0B1D3A; margin-bottom:6px;">Menos retrabalho</div>
-                          <div style="font-size:13px; color:#5A6B7E; line-height:20px;">Produtividade e resultados mensuráveis</div>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+    <!-- Categoria 2: Sistemas e Implantações -->
+    <div class="category-block fade-up">
+      <div class="category-header">
+        <div class="category-bullet"></div>
+        <h3>Sistemas, implantações & portais</h3>
+        <span class="category-count">9 frentes</span>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card orange">
+          <div class="project-head"><h4>Implantação Domínio · PT1</h4><span class="status done">Entregue</span></div>
+          <p>Primeira leva de empresas migradas do Alterdata — SN e regimes de menor complexidade já operando na nova plataforma.</p>
+        </div>
+        <div class="project-card orange">
+          <div class="project-head"><h4>Implantação Domínio · PT2</h4><span class="status progress">Em andamento</span></div>
+          <p>Segunda etapa focada nas empresas maiores, com as de alta complexidade programadas para a virada 26/27. Acompanhamento pelo Zeilton.</p>
+        </div>
+        <div class="project-card orange">
+          <div class="project-head"><h4>Portal do Cliente · identidade</h4><span class="status done">Entregue</span></div>
+          <p>Configuração da identidade visual (cores, logo e vínculo com o site) do Portal do Cliente Domínio, alinhada à marca Crosara.</p>
+          <div class="project-note"><strong>Próximo passo:</strong> alimentar com materiais para divulgação aos clientes.</div>
+        </div>
+        <div class="project-card orange">
+          <div class="project-head"><h4>Ajustes Portal do Cliente</h4><span class="status done">Entregue</span></div>
+          <p>Atualização junto à Domínio e ajustes no portal do cliente após o rebranding da Crosara.</p>
+        </div>
+        <div class="project-card orange">
+          <div class="project-head"><h4>Conta PJ — Domínio</h4><span class="status done">Entregue</span></div>
+          <p>Implantação do módulo Conta PJ da Domínio, conduzida junto ao Lucas.</p>
+        </div>
+        <div class="project-card orange">
+          <div class="project-head"><h4>CNDs — Domínio</h4><span class="status done">Entregue</span></div>
+          <p>Configuração do módulo de captura de CNDs pela Domínio, pronto para disponibilização via Portal do Cliente.</p>
+        </div>
+        <div class="project-card orange">
+          <div class="project-head"><h4>Autmais — captura de documentos</h4><span class="status progress">Em andamento</span></div>
+          <p>Automação da captura de NFs dos clientes para alimentar o Fiscal, com conciliação bancária e open finance incluídos — custo competitivo frente à concorrência.</p>
+        </div>
+        <div class="project-card orange">
+          <div class="project-head"><h4>Sistema de gestão de TI</h4><span class="status done">Entregue</span></div>
+          <p>Implantação de sistema de chamados e inventário — organização de tickets, métricas da operação de suporte e governança.</p>
+        </div>
+        <div class="project-card orange">
+          <div class="project-head"><h4>Migração Dropbox → Drive</h4><span class="status done">Entregue</span></div>
+          <p>Centralização de dados em uma única nuvem, com redução de custos e padronização do armazenamento corporativo.</p>
+        </div>
+      </div>
+    </div>
 
-          <!-- ========== HIGHLIGHT BLOCK ========== -->
-          <tr>
-            <td style="padding:24px 44px 32px 44px; background-color:#FFFFFF;">
-              <table role="presentation" width="100%" style="background:linear-gradient(135deg, #0B1D3A 0%, #163162 100%); border-radius:12px;">
-                <tr>
-                  <td style="padding:28px 32px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:19px; line-height:30px; color:#FFFFFF; text-align:center;">
-                    <span style="color:#F5922A; font-weight:700;">Na prática,</span> sua rotina e relacionamento conosco permanecem os mesmos — apenas <strong>evoluímos nossa capacidade de entrega.</strong>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+    <!-- Categoria 3: Fiscal & Contábil -->
+    <div class="category-block fade-up">
+      <div class="category-header">
+        <div class="category-bullet"></div>
+        <h3>Automações fiscais & contábeis</h3>
+        <span class="category-count">6 frentes</span>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-head"><h4>Honorários — faturamento</h4><span class="status pending">Pendência técnica</span></div>
+          <p>Automação de faturamento, emissão de boleto e NF e envio ao cliente pelo módulo Honorários da Domínio.</p>
+          <div class="project-note"><strong>Pendente:</strong> validar com João Marcos a parametrização da NF de Goiânia e script para manter Domínio aberto fora do expediente.</div>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Importação XML — Domínio</h4><span class="status progress">Em andamento</span></div>
+          <p>Com o download via Autmais, importação automática para a Domínio — otimizando o trabalho das analistas.</p>
+          <div class="project-note"><strong>Pendente:</strong> script para manter usuário gerente conectado fora do expediente (validar com João Marcos).</div>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Open Finance</h4><span class="status done">Entregue</span></div>
+          <p>Testes comparativos entre Domínio e Autmais — definido Autmais por custo e facilidade de adesão dos clientes.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Gestão de notificações e-CAC</h4><span class="status done">Entregue</span></div>
+          <p>Criação de grupo de e-mail integrado ao portal do e-CAC para notificar todas as partes interessadas, evitando perda de prazos.</p>
+          <div class="project-note"><strong>Trade-off:</strong> sistema dedicado avaliado, mas "a cerca ficou mais cara que a boiada".</div>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Automações Domínio (catálogo)</h4><span class="status progress">Em andamento</span></div>
+          <p>Listagem completa das rotinas automáticas que podem ser configuradas para otimizar a operação — validar maturidade das equipes e priorização com o Zeilton.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>IA · Automação de IR (E1)</h4><span class="status paused">Paralisado</span></div>
+          <p>Automatização do processo de declaração de IR — ingestão, comparativo com pré-preenchida, validação e geração para o portal. Orçado no mercado e na Embrapii.</p>
+          <div class="project-note"><strong>Status:</strong> paralisado por questões pessoais do responsável (Thalles).</div>
+        </div>
+      </div>
+    </div>
 
-          <!-- ========== PARA CLIENTES AÇÃO TECNOLOGIA ========== -->
-          <tr>
-            <td style="padding:0 44px 8px 44px; background-color:#FFFFFF;">
-              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:#F5922A;">
-                Para você, cliente Ação Tecnologia
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:8px 44px 8px 44px; background-color:#FFFFFF; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16px; line-height:28px; color:#3D4F63;">
-              <p style="margin:0 0 16px 0;">
-                Além de toda a expertise em tecnologia que você já conhece, agora seu negócio conta também com <strong style="color:#0B1D3A;">inteligência financeira integrada</strong>:
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:0 36px 24px 36px; background-color:#FFFFFF;">
-              <table role="presentation" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
-                <tr>
-                  <td style="padding:22px 28px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:15px; color:#3D4F63; line-height:30px;">
-                    <span style="color:#F5922A; font-weight:700;">💰</span>&nbsp; Gestão financeira estratégica e planejamento<br/>
-                    <span style="color:#F5922A; font-weight:700;">📈</span>&nbsp; Controle de fluxo de caixa e conciliação bancária<br/>
-                    <span style="color:#F5922A; font-weight:700;">🔍</span>&nbsp; Diagnóstico financeiro e identificação de oportunidades<br/>
-                    <span style="color:#F5922A; font-weight:700;">📊</span>&nbsp; Indicadores financeiros (KPIs) para tomada de decisão<br/>
-                    <span style="color:#F5922A; font-weight:700;">🎯</span>&nbsp; Redução de custos e otimização de resultados
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+    <!-- Categoria 4: Infra e capacitação -->
+    <div class="category-block fade-up">
+      <div class="category-header">
+        <div class="category-bullet"></div>
+        <h3>Infraestrutura, capacitação & governança</h3>
+        <span class="category-count">3 frentes</span>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-head"><h4>Reciclagem SAAM</h4><span class="status progress">Em andamento</span></div>
+          <p>Identificada necessidade de atualização, padronização e nivelamento de conhecimento — contato com a SAAM e obtenção de treinamentos gratuitos.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Rebranding — ajustes sistêmicos</h4><span class="status done">Entregue</span></div>
+          <p>Atualização de identidade nos sistemas e portais (Domínio, Portal do Cliente) após rebranding corporativo da Crosara.</p>
+        </div>
+        <div class="project-card">
+          <div class="project-head"><h4>Governança de scripts automáticos</h4><span class="status pending">Pendência técnica</span></div>
+          <p>Padronização da execução de rotinas fora do horário comercial — script para manter usuário gerente conectado e rodar automações noturnas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-          <!-- ========== PARA CLIENTES UP FINANCE ========== -->
-          <tr>
-            <td style="padding:8px 44px 8px 44px; background-color:#FFFFFF;">
-              <div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:13px; font-weight:700; letter-spacing:2.5px; text-transform:uppercase; color:#2B6BFF;">
-                Para você, cliente UP Finance
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:8px 44px 8px 44px; background-color:#FFFFFF; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16px; line-height:28px; color:#3D4F63;">
-              <p style="margin:0 0 16px 0;">
-                Toda a inteligência financeira que você já confia, agora potencializada com <strong style="color:#0B1D3A;">tecnologia de ponta</strong>:
-              </p>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:0 36px 32px 36px; background-color:#FFFFFF;">
-              <table role="presentation" width="100%" style="background:#F7F9FC; border-radius:10px; border:1px solid #E8EDF3;">
-                <tr>
-                  <td style="padding:22px 28px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:15px; color:#3D4F63; line-height:30px;">
-                    <span style="color:#2B6BFF; font-weight:700;">⚙️</span>&nbsp; Automação de processos e rotinas operacionais<br/>
-                    <span style="color:#2B6BFF; font-weight:700;">🔗</span>&nbsp; Integrações entre plataformas, ERPs e sistemas<br/>
-                    <span style="color:#2B6BFF; font-weight:700;">💻</span>&nbsp; Desenvolvimento de soluções sob medida<br/>
-                    <span style="color:#2B6BFF; font-weight:700;">🛡️</span>&nbsp; Infraestrutura, segurança e suporte técnico<br/>
-                    <span style="color:#2B6BFF; font-weight:700;">📋</span>&nbsp; Dashboards e relatórios inteligentes em tempo real
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+<!-- VORTAX -->
+<section class="vortax-section" id="vortax">
+  <div class="container">
+    <span class="section-kicker fade-up">Frente 02 · Sistema interno</span>
+    <h2 class="section-title fade-up">Vortax — o sistema interno da Crosara</h2>
+    <p class="section-subtitle fade-up">Sistema concebido originalmente como <strong>Crosara Insights</strong> e evoluído para uma plataforma interna voltada a <strong>automações, controle e gestão da operação</strong>. A proposta é concentrar em um único ambiente as automações sistematizadas da empresa.</p>
 
-          <!-- ========== CLOSING TEXT + CTA ========== -->
-          <tr>
-            <td style="padding:0 44px 12px 44px; background-color:#FFFFFF; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16px; line-height:28px; color:#3D4F63;">
-              <p style="margin:0 0 16px 0;">
-                Seguimos com o mesmo compromisso de sempre: <strong style="color:#0B1D3A;">gerar resultados reais para o seu negócio</strong>, agora com ainda mais tecnologia, integração e inteligência.
-              </p>
-              <p style="margin:0;">
-                Quer conhecer melhor os benefícios da fusão e como podemos agregar ainda mais ao seu negócio? Agende uma visita com nosso time — será um prazer apresentar tudo de perto.
-              </p>
-            </td>
-          </tr>
+    <div class="vortax-hero fade-up">
+      <div>
+        <div class="vortax-brand">
+          <div class="vortax-logo">V</div>
+          <div class="vortax-brand-text">
+            <span class="t1">Sistema interno</span>
+            <span class="t2">Vortax</span>
+          </div>
+        </div>
+        <h2>Um ambiente único para automatizar, controlar e gerir a operação</h2>
+        <p>O Vortax nasceu da dor de ter profissionais consumindo horas em planilhas manuais e processos dispersos. O escopo atual vai além: centralizar em um sistema próprio todas as automações sistematizadas da Crosara, oferecendo controle e gestão unificados.</p>
+        <p>O primeiro módulo em desenvolvimento é o <strong>Insights</strong>, que herda o nome original do projeto e organiza relatórios em três níveis de profundidade — gerencial, tático e estratégico. Novos módulos de automação, controle e gestão serão adicionados ao longo do tempo.</p>
+        <div class="vortax-tags">
+          <span class="vortax-tag">Sistema interno</span>
+          <span class="vortax-tag">Automações sistematizadas</span>
+          <span class="vortax-tag">Controle & gestão</span>
+          <span class="vortax-tag">Arquitetura modular</span>
+        </div>
+      </div>
 
-          <!-- ========== CTA BUTTON ========== -->
-          <tr>
-            <td align="center" style="padding:20px 44px 44px 44px; background-color:#FFFFFF; border-radius:0 0 12px 12px;">
-              <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td align="center" style="border-radius:10px; background:linear-gradient(135deg, #F5922A 0%, #E8732A 100%);">
-                    <a href="https://wa.me/5562981159328"
-                       target="_blank"
-                       style="display:inline-block; padding:16px 40px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size:16px; font-weight:700; color:#FFFFFF; text-decoration:none; border-radius:10px; letter-spacing:0.5px;">
-                      Agendar conversa →
-                    </a>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
+      <div class="vortax-visual">
+        <div class="vortax-layer vortax-layer-1">
+          <div class="vl-label">Módulo Insights</div>
+          <div class="vl-title">Relatório Gerencial</div>
+          <div class="vl-bars">
+            <div class="vl-bar" style="height:40%"></div>
+            <div class="vl-bar" style="height:70%"></div>
+            <div class="vl-bar" style="height:55%"></div>
+            <div class="vl-bar" style="height:85%"></div>
+            <div class="vl-bar" style="height:60%"></div>
+            <div class="vl-bar" style="height:95%"></div>
+          </div>
+        </div>
+        <div class="vortax-layer vortax-layer-2">
+          <div class="vl-label">Módulo Insights</div>
+          <div class="vl-title">Relatório Tático</div>
+          <div class="vl-row"><span class="vl-dot"></span><span class="vl-line"><span class="vl-fill" style="width:78%"></span></span></div>
+          <div class="vl-row"><span class="vl-dot o"></span><span class="vl-line"><span class="vl-fill" style="width:54%; background:var(--orange)"></span></span></div>
+        </div>
+        <div class="vortax-layer vortax-layer-3">
+          <div class="vl-label">Módulo Insights</div>
+          <div class="vl-title">Relatório Estratégico</div>
+          <div class="vl-row"><span class="vl-dot"></span><span style="font-size:.78rem;color:var(--muted)">Projeções e cenários</span></div>
+        </div>
+      </div>
+    </div>
 
-          <!-- ========== FOOTER ========== -->
-          <tr>
-            <td style="padding:0;">
-              <div style="height:4px; background: linear-gradient(90deg, #F5922A 0%, #2B6BFF 50%, #0B1D3A 100%);"></div>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:36px 40px; background-color:#070F1E; text-align:center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-radius:0 0 12px 12px;">
-              <div style="font-size:18px; font-weight:700; color:#FFFFFF; margin-bottom:4px;">
-                UP380 Tecnologia e Finanças
-              </div>
-              <div style="font-size:13px; color:#6A7E96; margin-bottom:16px;">
-                Inteligência financeira + tecnologia aplicada
-              </div>
-              <div style="margin-bottom:16px;">
-                <a href="mailto:contato@up380.com.br" style="color:#F5922A; text-decoration:none; font-size:14px;">contato@up380.com.br</a>
-                <span style="color:#2D3E52; padding:0 8px;">|</span>
-                <span style="color:#8FA3B8; font-size:14px;">(62) 99855-0304</span>
-              </div>
-              <div style="color:#3D4F63; font-size:12px;">
-                © 2026 UP380 Tecnologia e Finanças. Todos os direitos reservados.
-              </div>
-            </td>
-          </tr>
+    <!-- ARQUITETURA MODULAR -->
+    <div style="margin-top:16px;margin-bottom:56px">
+      <h3 style="font-size:1.35rem;font-weight:800;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em" class="fade-up">Arquitetura modular</h3>
+      <p style="color:var(--muted);font-size:.95rem;margin-bottom:28px;max-width:720px" class="fade-up">O Vortax é construído em módulos independentes que vão sendo agregados conforme a operação evolui. O primeiro módulo em desenvolvimento é o Insights; os demais estão previstos no roadmap.</p>
+      <div class="arch-grid">
+        <div class="arch-card active fade-up">
+          <div class="arch-head">
+            <div class="arch-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 14l4-4 4 4 5-5"/></svg></div>
+            <span class="arch-status on">Em desenvolvimento</span>
+          </div>
+          <h4>Insights</h4>
+          <p>Relatórios organizados em três níveis de profundidade: gerencial, tático e estratégico.</p>
+        </div>
+        <div class="arch-card fade-up" style="transition-delay:.05s">
+          <div class="arch-head">
+            <div class="arch-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
+            <span class="arch-status off">Previsto</span>
+          </div>
+          <h4>Automações</h4>
+          <p>Concentrará as automações sistematizadas da operação em um único ambiente.</p>
+        </div>
+        <div class="arch-card fade-up" style="transition-delay:.1s">
+          <div class="arch-head">
+            <div class="arch-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg></div>
+            <span class="arch-status off">Previsto</span>
+          </div>
+          <h4>Controle</h4>
+          <p>Visão consolidada de indicadores de controle interno e conformidade dos processos.</p>
+        </div>
+        <div class="arch-card fade-up" style="transition-delay:.15s">
+          <div class="arch-head">
+            <div class="arch-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M8 4v16"/></svg></div>
+            <span class="arch-status off">Previsto</span>
+          </div>
+          <h4>Gestão</h4>
+          <p>Ferramentas para gestão da operação, consolidando fluxos hoje dispersos em sistemas e planilhas.</p>
+        </div>
+      </div>
+    </div>
 
-        </table>
-        <!-- /Main container -->
+    <!-- MÓDULO INSIGHTS -->
+    <div>
+      <h3 style="font-size:1.35rem;font-weight:800;color:var(--ink);margin-bottom:8px;letter-spacing:-.01em" class="fade-up">Módulo Insights — três níveis de relatório</h3>
+      <p style="color:var(--muted);font-size:.95rem;margin-bottom:28px;max-width:720px" class="fade-up">Primeiro módulo do Vortax em desenvolvimento. Organiza a visualização de dados em três camadas, cada uma dirigida a um público: liderança, gestores de área e direção.</p>
+    </div>
 
-      </td>
-    </tr>
-  </table>
-  <!-- /Outer wrapper -->
+    <div class="modules-grid">
+      <div class="module-card fade-up">
+        <div class="module-num">01</div>
+        <div class="module-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h4M9 17h6"/></svg>
+        </div>
+        <h3>Relatório Gerencial</h3>
+        <p class="module-obj">Visão macro e em tempo real da saúde do negócio, para a liderança acompanhar resultados de forma ágil.</p>
+        <div class="module-features">
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Visualização clara e imediata dos principais KPIs</span></div>
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Gráficos dinâmicos e interativos comparando status atual com metas</span></div>
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Alertas visuais para desvios de performance</span></div>
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Filtros rápidos para segmentação por período, setor ou projeto</span></div>
+        </div>
+      </div>
+
+      <div class="module-card fade-up" style="transition-delay:.1s">
+        <div class="module-num">02</div>
+        <div class="module-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 3h18v4H3zM3 11h12v4H3zM3 19h18v2H3z"/></svg>
+        </div>
+        <h3>Relatório Tático</h3>
+        <p class="module-obj">Suporte prático a gestores de área e coordenadores na condução eficiente das operações rotineiras — diárias, semanais e mensais.</p>
+        <div class="module-features">
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Detalhamento minucioso das métricas de produtividade por equipe ou indivíduo</span></div>
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Identificação rápida de gargalos processuais ou operacionais</span></div>
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Ferramentas de cruzamento de dados para ajustes rápidos de rota na operação</span></div>
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Exportação de dados consolidados para reuniões de alinhamento e feedbacks</span></div>
+        </div>
+      </div>
+
+      <div class="module-card fade-up" style="transition-delay:.2s">
+        <div class="module-num">03</div>
+        <div class="module-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
+        </div>
+        <h3>Relatório Estratégico</h3>
+        <p class="module-obj">Subsídio para a alta gestão e a diretoria com dados complexos e consolidados, base para o planejamento de longo prazo e o direcionamento da empresa.</p>
+        <div class="module-features">
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Análise profunda de tendências com base em histórico consolidado</span></div>
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Visões de projeção (forecast) e modelagem de cenários futuros</span></div>
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Cruzamento de indicadores operacionais com métricas financeiras e de mercado</span></div>
+          <div class="module-feature"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg><span>Consolidação de resultados globais para decisões de investimento, expansão ou reestruturação</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESCALA DE IA -->
+<section class="ia-section" id="escala-ia">
+  <div class="container">
+    <span class="section-kicker fade-up">Frente 03 · Inovação</span>
+    <h2 class="section-title fade-up">Escala de IA</h2>
+    <p class="section-subtitle fade-up">Iniciativa interna dedicada à capacitação da equipe, à prototipação de MVPs e à implantação de arquiteturas de IA nas operações da Crosara.</p>
+
+    <div>
+      <h3 style="font-size:1.35rem;font-weight:800;color:var(--ink);margin-bottom:8px;margin-top:48px" class="fade-up">Entregáveis da frente</h3>
+      <p style="color:var(--muted);font-size:.95rem;margin-bottom:28px;max-width:720px" class="fade-up">Cada ciclo da iniciativa combina capacitação, prototipação, arquitetura e documentação, gerando os seguintes entregáveis:</p>
+      <div class="benefits-grid">
+        <div class="benefit fade-up">
+          <div class="benefit-head">
+            <div class="benefit-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+            <h4>Equipe capacitada</h4>
+          </div>
+          <p>Treinamento prático com casos reais do dia a dia da operação, com nivelamento e aplicação imediata.</p>
+        </div>
+        <div class="benefit fade-up">
+          <div class="benefit-head">
+            <div class="benefit-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h8l-1 8 10-12h-8l1-8z"/></svg></div>
+            <h4>MVPs funcionais</h4>
+          </div>
+          <p>Protótipos desenvolvidos pela própria equipe, com acompanhamento, para validar aplicabilidade antes de escalar.</p>
+        </div>
+        <div class="benefit fade-up">
+          <div class="benefit-head">
+            <div class="benefit-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 2h6l1 4h3a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h3z"/><path d="M9 13h6M9 17h4"/></svg></div>
+            <h4>POPs de uso</h4>
+          </div>
+          <p>Procedimentos operacionais padrão de cada automação, reduzindo dependência de quem criou e erros de uso.</p>
+        </div>
+        <div class="benefit fade-up">
+          <div class="benefit-head">
+            <div class="benefit-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h6M9 13h6M9 17h6"/></svg></div>
+            <h4>Arquitetura definitiva</h4>
+          </div>
+          <p>Versão final das soluções validadas, com banco de dados, frontend, integrações e multi-agentes quando aplicável.</p>
+        </div>
+        <div class="benefit fade-up">
+          <div class="benefit-head">
+            <div class="benefit-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg></div>
+            <h4>Replicação entre áreas</h4>
+          </div>
+          <p>Soluções validadas em uma área são adaptadas para outras, aproveitando o que já funciona sem refazer do zero.</p>
+        </div>
+        <div class="benefit fade-up">
+          <div class="benefit-head">
+            <div class="benefit-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2M16 11l2 2 4-4"/></svg></div>
+            <h4>Mentoria continuada</h4>
+          </div>
+          <p>Acompanhamento após o treinamento para ajustes, incrementos e abertura de novos ciclos de trabalho.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METODOLOGIA (BPMN style) -->
+<section class="methodology">
+  <div class="container">
+    <span class="section-kicker fade-up">Metodologia</span>
+    <h2 class="section-title fade-up">Ciclo de implantação em 4 etapas</h2>
+    <p class="section-subtitle fade-up">Cada ciclo segue a mesma estrutura — do nivelamento inicial à documentação do processo final — antes de abrir um novo ciclo com novas oportunidades.</p>
+
+    <div class="flow-track fade-up">
+      <div class="flow-connector"></div>
+      <div class="flow-steps">
+        <div class="flow-step">
+          <div class="flow-step-circle">1</div>
+          <h4>Treinamento & nivelamento</h4>
+          <p>Capacitação prática inicial em IA, com aplicação em casos reais da operação.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-circle">2</div>
+          <h4>Mentoria & MVP</h4>
+          <p>Acompanhamento na construção de MVPs pela equipe, com estruturação de processos e POPs.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-circle">3</div>
+          <h4>Arquitetura & implantação</h4>
+          <p>Após validação do MVP, é desenhada e implantada a versão definitiva — banco, frontend, integrações e multi-agentes quando cabível.</p>
+        </div>
+        <div class="flow-step">
+          <div class="flow-step-circle">4</div>
+          <h4>Documentação & novo ciclo</h4>
+          <p>Documentação da versão final, treinamento do processo novo e abertura do próximo ciclo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="swimlanes fade-up">
+      <div class="swimlanes-title">Fluxo BPMN — quem faz o quê</div>
+      <div class="lane">
+        <div class="lane-label">UP380</div>
+        <div class="lane-steps">
+          <span class="lane-pill">Treinamento inicial</span>
+          <span class="lane-arrow">→</span>
+          <span class="lane-pill">Melhora ideias e estrutura</span>
+          <span class="lane-arrow">→</span>
+          <span class="lane-pill">Cria POP de boas práticas</span>
+          <span class="lane-arrow">→</span>
+          <span class="lane-pill">Idealiza arquitetura</span>
+          <span class="lane-arrow">→</span>
+          <span class="lane-pill">Refina IA</span>
+          <span class="lane-arrow">→</span>
+          <span class="lane-pill">Implanta versão ideal</span>
+          <span class="lane-arrow">→</span>
+          <span class="lane-pill">Treina e documenta</span>
+        </div>
+      </div>
+      <div class="lane cliente">
+        <div class="lane-label">Cliente</div>
+        <div class="lane-steps">
+          <span class="lane-pill">Equipe idealiza soluções</span>
+          <span class="lane-arrow">→</span>
+          <span class="lane-pill">Faz o MVP</span>
+          <span class="lane-arrow">→</span>
+          <span class="lane-pill">Continua usando MVP com instruções</span>
+          <span class="lane-arrow">→</span>
+          <span class="lane-pill" style="background:var(--orange-soft);color:var(--orange-dark);border-color:var(--orange-light)">Novo ciclo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="outcomes">
+      <div class="outcome fade-up">
+        <div class="outcome-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4"/></svg></div>
+        <h5>Menor custo de operação</h5>
+      </div>
+      <div class="outcome fade-up" style="transition-delay:.05s">
+        <div class="outcome-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 13h6M9 17h6"/></svg></div>
+        <h5>Padronizada</h5>
+      </div>
+      <div class="outcome fade-up" style="transition-delay:.1s">
+        <div class="outcome-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+        <h5>Escalável</h5>
+      </div>
+      <div class="outcome fade-up" style="transition-delay:.15s">
+        <div class="outcome-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg></div>
+        <h5>Replicável</h5>
+      </div>
+      <div class="outcome fade-up" style="transition-delay:.2s">
+        <div class="outcome-icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12l5 5L20 7"/></svg></div>
+        <h5>Fácil de usar</h5>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <img src="logo-acao.png" alt="Ação Tecnologia">
+      <div class="footer-copy"><strong style="color:var(--ink)">Ação Tecnologia</strong> · Crosara Contabilidade</div>
+    </div>
+    <div class="footer-copy">Apresentação interna — Abril / 2026</div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  // Fade-up observer
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
 
 </body>
 </html>
